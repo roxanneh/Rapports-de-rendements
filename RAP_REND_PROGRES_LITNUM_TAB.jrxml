@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-10-30T14:31:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RAP_REND_PROGRES_LITNUM" pageWidth="1224" pageHeight="792" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="b539607b-9f6e-482d-9a4f-344a8d08e3a1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN Tril"/>
+	<property name="ireport.jasperserver.url" value="https://rapports.franco-nord.ca/trilliumReports/"/>
+	<property name="ireport.jasperserver.user" value="superuser|CSCFN"/>
+	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_progres/RAP_REND_PROGRES_LITNUM_TAB_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_progres/RAP_REND_PROGRES_LITNUM_TAB"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#73B0E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Lignes Grises">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Absences" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} >= 21]]></conditionExpression>
+			<style forecolor="#EB1D1A" backcolor="#000000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} < 21 && $F{YTD_ABS} >= 11]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} < 11 && $F{YTD_ABS} >= 6]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Retards" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES} >= 21]]></conditionExpression>
+			<style forecolor="#EB1D1A" backcolor="#000000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES}< 21 && $F{YTD_LATES} >= 11]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES} < 11 && $F{YTD_LATES} >= 6]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="FRANCAIS_ORAL" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FRANCAIS_ORAL}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FRANCAIS_ORAL}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FRANCAIS_ORAL}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="FIABILITE" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FIABILITE}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FIABILITE}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FIABILITE}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ORGANISATION" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ORGANISATION}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ORGANISATION}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ORGANISATION}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="AUTONOMIE" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTONOMIE}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTONOMIE}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTONOMIE}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COLLABORATION" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COLLABORATION}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COLLABORATION}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COLLABORATION}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="INITIATIVE" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{INITIATIVE}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{INITIATIVE}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{INITIATIVE}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="AUTOREGULATION" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTOREGULATION}.equals("N")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTOREGULATION}.equals("S")]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AUTOREGULATION}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="FRANCAIS" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COTE_FRA}.equals("Progresse avec difficulté")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COTE_FRA}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="MATHS" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COTE_MATH}.equals("Progresse avec difficulté")]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COTE_MATH}.equals("?")]]></conditionExpression>
+			<style backcolor="#828282"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Dataset1" uuid="5c9cb948-0842-4a97-9509-121d73e29c38">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN TRIL"/>
+		<parameter name="SCHOOL_YEAR" class="java.lang.String" isForPrompting="false">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="SCHOOL_CODE" class="java.util.List" isForPrompting="false">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="CLASS_CODE" class="java.util.List" isForPrompting="false">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="GRADE" class="java.util.List" isForPrompting="false">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT DISTINCT SR.PERSON_ID,
+S.SCHOOL_NAME,
+SR.SCHOOL_CODE,
+SR.GRADE,
+P.LEGAL_NAME_UPPER,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_CLASS_CODE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, SR.GRADE) AS CLASS_CODE,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ABS_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS YTD_ABS,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_RET_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS YTD_LATES,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_REPORT_PEI2(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS PEI,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_REPORT_ANOMALIE2(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS ANOMALIE,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ALS(SR.PERSON_ID) AS ALS,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NATIVE_FLAG(SR.PERSON_ID) AS PNMI,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_COTE_PROGRES(SR.PERSON_ID, SR.SCHOOL_CODE,  SR.SCHOOL_YEAR, '009') AS COTE_FRA,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_COTE_PROGRES(SR.PERSON_ID, SR.SCHOOL_CODE,  SR.SCHOOL_YEAR, '9999000000030') AS COTE_MATH,
+DECODE(SA.LS_USE_OF_ORAL_FRE,  'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS FRANCAIS_ORAL, 
+DECODE(SA.LS_RESPONSIBILITY,   'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS FIABILITE, 
+DECODE(SA.LS_ORGANIZATION,     'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS ORGANISATION, 
+DECODE(SA.LS_INDEPENDENT_WORK, 'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS AUTONOMIE, 
+DECODE(SA.LS_COLLABORATION,    'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS COLLABORATION, 
+DECODE(SA.LS_INITIATIVE,       'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS INITIATIVE, 
+DECODE(SA.LS_SELF_REGULATION,  'E', 'E', 'G', 'T', 'S', 'S', 'N', 'N', '?') AS AUTOREGULATION
+FROM STUDENT_REGISTRATIONS SR
+INNER JOIN STUDENT_ACHIEVEMENT SA
+ON SA.SCHOOL_CODE = SR.SCHOOL_CODE
+AND SA.SCHOOL_YEAR = SR.SCHOOL_YEAR
+AND SA.PERSON_ID = SR.PERSON_ID
+INNER JOIN STUDENT_COURSE_STRAND_ACHIEVE SCSA
+ON SCSA.SCHOOL_YEAR = SA.SCHOOL_YEAR
+AND SCSA.SCHOOL_CODE = SA.SCHOOL_CODE
+AND SCSA.PERSON_ID = SA.PERSON_ID
+AND SCSA.REPORT_PERIOD = SA.REPORT_PERIOD
+INNER JOIN COURSE_CODES CC
+ON CC.COURSE_CODE = SCSA.COURSE_CODE
+INNER JOIN SUBJECTS SUB
+ON SUB.SUBJECT_CODE = CC.SUBJECT_CODE
+INNER JOIN SCHOOLS S
+ON S.SCHOOL_CODE = SR.SCHOOL_CODE
+INNER JOIN PERSONS P
+ON P.PERSON_ID = SR.PERSON_ID
+WHERE  SR.SCHOOL_YEAR = '20142015'
+AND SR.SCHOOL_CODE = 'CHR'
+AND SR.GRADE IN ('01','02','03','04','05','06','07','08')
+AND SA.REPORT_PERIOD = 'P'
+AND SUB.SUBJECT_CODE IN ('9999000000030','009')
+AND SR.OSR_FLAG = 'x'
+AND SR.STATUS_INDICATOR_CODE IN ('Active', 'Inactive')
+ORDER BY S.SCHOOL_NAME ASC, SR.GRADE ASC, P.LEGAL_NAME_UPPER ASC]]>
+		</queryString>
+		<field name="PERSON_ID" class="java.lang.String"/>
+		<field name="SCHOOL_NAME" class="java.lang.String"/>
+		<field name="SCHOOL_CODE" class="java.lang.String"/>
+		<field name="GRADE" class="java.lang.String"/>
+		<field name="LEGAL_NAME_UPPER" class="java.lang.String"/>
+		<field name="CLASS_CODE" class="java.lang.String"/>
+		<field name="YTD_ABS" class="java.lang.Double"/>
+		<field name="YTD_LATES" class="java.lang.Double"/>
+		<field name="PEI" class="java.lang.String"/>
+		<field name="ANOMALIE" class="java.lang.String"/>
+		<field name="ALS" class="java.lang.String"/>
+		<field name="PNMI" class="java.lang.String"/>
+		<field name="COTE_FRA" class="java.lang.String"/>
+		<field name="COTE_MATH" class="java.lang.String"/>
+		<field name="FRANCAIS_ORAL" class="java.lang.String"/>
+		<field name="FIABILITE" class="java.lang.String"/>
+		<field name="ORGANISATION" class="java.lang.String"/>
+		<field name="AUTONOMIE" class="java.lang.String"/>
+		<field name="COLLABORATION" class="java.lang.String"/>
+		<field name="INITIATIVE" class="java.lang.String"/>
+		<field name="AUTOREGULATION" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SCHOOL_YEAR" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SCHOOL_CODE" class="java.util.List" isForPrompting="false"/>
+	<parameter name="CLASS_CODE" class="java.util.List" isForPrompting="false"/>
+	<parameter name="GRADE" class="java.util.List" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT P.PERSON_ID
+FROM PERSONS P
+WHERE ROWNUM = 1]]>
+	</queryString>
+	<field name="PERSON_ID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="90" height="60" uuid="9cde91ba-2ba1-4861-bd9e-d3c9b1288594"/>
+				<imageExpression><![CDATA["\\\\TINTINV1\\photosdeseleves\\CSCFN_LOGO.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="90" y="14" width="1064" height="32" uuid="a4a110fb-2434-432a-a8db-b60bed0ef000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rapport de rendement - Progrès - Littératie/Numératie - " + $P{SCHOOL_YEAR}.substring( 0, 4 ) + "/" + $P{SCHOOL_YEAR}.substring( 4, 8 )]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="542" y="0" width="490" height="20" uuid="0db43afa-8bc4-4597-b872-17f1a92d1f9e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Habiletés]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1032" y="0" width="150" height="20" uuid="1345d5bf-b92c-4a17-a056-39384cf7028d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cote/Matière]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="1182" height="40" uuid="40099d60-6147-416d-bb05-755249dd1be3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="7cd15948-f174-41f6-8f51-160de754a2b6">
+						<datasetParameter name="CLASS_CODE">
+							<datasetParameterExpression><![CDATA[$P{CLASS_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="GRADE">
+							<datasetParameterExpression><![CDATA[$P{GRADE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SCHOOL_CODE">
+							<datasetParameterExpression><![CDATA[$P{SCHOOL_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SCHOOL_YEAR">
+							<datasetParameterExpression><![CDATA[$P{SCHOOL_YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="110" uuid="990c7063-509f-4891-8432-41f259385d80">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="20" uuid="c7fbf282-cf3e-4597-965b-8b5c11affa28">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Nom]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="110" height="20" uuid="a0b09eeb-0bab-4539-9c6d-989db7fd562c"/>
+								<box padding="3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEGAL_NAME_UPPER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="64" uuid="18ceda64-49b8-4a4b-b518-b303d5779234">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="64" height="20" uuid="79763462-3c2a-426b-a4e9-bef0e7368106"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[École]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="64" height="20" uuid="609af3d9-a6ad-4791-8170-303803b57eb5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SCHOOL_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="6022fa33-2118-49de-a7d5-bb057602a6fa">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="908aa593-b78b-4e4d-a793-f53c22af5766"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Niveau]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="b6a22482-3a0e-4536-8541-1a0fa256807f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{GRADE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="64" uuid="f0adc337-ccd9-4bd6-b7a0-a4a95dc804b5">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="64" height="20" uuid="e63627b0-18a9-4043-830d-5b91015c2cfe"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Classe]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="64" height="20" uuid="d022536e-9a59-4801-ad22-21291cd00ad2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CLASS_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="90334cd3-8df6-4fe0-a3e0-3327ef6edbc4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="cf851481-9f84-4330-aed9-bf5f36545d48"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Abs]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Absences" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="5ac17b02-31f1-4f0e-aa54-68bd59fa1de2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{YTD_ABS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="fac72667-4501-4085-aa40-f597c60a25ba">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="af0af82d-ddb0-4ed6-aba2-15621285a02d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Ret]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Retards" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="69eff825-a22b-403e-ac50-80efe991ffeb">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{YTD_LATES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="eff4769b-fa0d-4c6b-ae04-0819e1e99a55">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="7b68674b-5042-4cec-a1d9-5a6e705894fd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[PEI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="342f553b-4d59-4da7-aff7-e3744a9762a9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PEI} == null ? "Non" : ($F{PEI}.equals("x") ? "Oui" : "Non")]]></textFieldExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Drilldown_PEI"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="P_PERSON_ID">
+									<hyperlinkParameterExpression><![CDATA[$F{PERSON_ID}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="64" uuid="2202c1bf-22fd-401f-bcdc-e10ecbc955d8">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="64" height="20" uuid="20b6e592-f8fc-4fd1-a505-6e68a03323fc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Anomalie]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="64" height="20" uuid="fa26a3cb-188d-4be8-9d05-bba452928677"/>
+								<box padding="3" leftPadding="1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ANOMALIE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="c46b5b6f-68de-4922-aeb2-0a89b69bd640">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="88f3106a-a909-4459-9d45-c0c794d1500b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ALS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="105d7701-bc12-4199-8993-68919226e017"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ALS}]]></textFieldExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Drilldowns_partages/details_alf"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="ACCOUNT_ID">
+									<hyperlinkParameterExpression><![CDATA[$F{PERSON_ID}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="e5eef5ee-a0e4-41ad-bb35-412fbb8ca8e0">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="20" uuid="6d185a2c-2207-415b-8943-cc74b8864e9b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[PNMI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="f17f964f-3009-42c5-af4c-8b831ac502dd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PNMI}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="cec68cae-9f11-4a16-b718-7439929cd9da">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="c937054d-d88a-4446-a723-7acb55341038">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<text><![CDATA[FRANCAIS ORAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement key="" style="FRANCAIS_ORAL" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="f4825e33-a32d-403a-9a3f-46a5bc454be1">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{FRANCAIS_ORAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="47a0d5cd-472c-4865-bbeb-1fe2367bcaba">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="07723863-2d6e-41ab-87d7-40035e11c8ee"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[FIABILITE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="FIABILITE" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="2a5245dd-05e3-44b3-9255-d0eb373ac3e5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{FIABILITE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="d9c947b7-e9bf-4fb6-9dbf-1e40698a0be5">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="f84a5112-e0fc-4675-aba6-5c1d8c6338d7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ORGANISATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="ORGANISATION" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="186ae563-d3fd-4d25-8520-f736391761f1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ORGANISATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="d742405c-2ae7-49f9-9bd3-090fecb470c5">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="76993606-3c91-41d1-8237-edb589b111fd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[AUTONOMIE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="AUTONOMIE" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="5b963892-7885-43d3-af71-2c922b3db364"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{AUTONOMIE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="59a0ae9a-88f0-4e2c-b1dd-93e9484780e4">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="c3fcc246-846c-4b93-99cd-f1bae61880dc">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<text><![CDATA[COLLABORATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="COLLABORATION" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="065a895f-5eda-4f61-9994-32c629ead6d4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COLLABORATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="dc886429-ce39-4ed5-9b9e-7c501cf6af23">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="ad659111-01cf-4861-81e9-d8eb4a151581"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[INITIATIVE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="INITIATIVE" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="1876ffa6-6527-4061-96ec-ade2e9d6ac98"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{INITIATIVE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="7f7183ac-df71-4d04-ac8e-656684917c02">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="058e9fb3-25dc-4114-b6a5-2ea835226abd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="7"/>
+								</textElement>
+								<text><![CDATA[AUTOREGULATION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="AUTOREGULATION" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="20" uuid="ff12eb64-d896-4fac-818b-aa5b6312d32f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{AUTOREGULATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="75" uuid="c2c1c18e-1e85-4cd0-b948-7198be16b5de">
+						<jr:columnHeader style="Table_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="75" height="20" uuid="c6c4fb2c-1b0c-4b1c-ab3d-18cee8aaefeb">
+									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[FRA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="FRANCAIS" stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="20" uuid="1d290929-1d7c-46f8-bf68-c64b28d037e9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{COTE_FRA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="75" uuid="a767f808-0bed-4d96-b74d-b729ae69fe83">
+						<jr:columnHeader style="Table_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="75" height="20" uuid="a23c5608-165e-4096-b611-25216b3aa559">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[MATH]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="MATHS" stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="20" uuid="075c5fda-760c-4504-9e31-d3c7b1d3cc0c">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{COTE_MATH}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

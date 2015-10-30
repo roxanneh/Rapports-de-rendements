@@ -1,0 +1,2674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-10-30T14:08:59 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rapport_rendement_num_note_comp_tab" pageWidth="1224" pageHeight="792" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="b533fc9a-fc23-4559-82d0-1c3ee4ecc7a7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN Tril"/>
+	<property name="ireport.jasperserver.url" value="https://rapports.franco-nord.ca/trilliumReports/"/>
+	<property name="ireport.jasperserver.user" value="superuser|CSCFN"/>
+	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/Rapport_ele_lit_notes_comp_tab_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/Rapport_ele_lit_notes_comp_tab"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#73B0E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Absences" mode="Opaque" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} >= 21]]></conditionExpression>
+			<style forecolor="#EB1D1A" backcolor="#000000" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} < 21 && $F{YTD_ABS} >= 11]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_ABS} < 11 && $F{YTD_ABS} >= 6]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Retards" mode="Opaque" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES} >= 21]]></conditionExpression>
+			<style forecolor="#EB1D1A" backcolor="#000000" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES} < 21 && $F{YTD_LATES} >= 11]]></conditionExpression>
+			<style backcolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{YTD_LATES} < 11 && $F{YTD_LATES} >= 6]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_1}.equals("1-") || $F{COM_I_1}.equals("1") || $F{COM_I_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_1}.equals("2-") || $F{COM_I_1}.equals("2") || $F{COM_I_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_1}.equals("1-") || $F{COM_F_1}.equals("1") || $F{COM_F_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_1}.equals("2-") || $F{COM_F_1}.equals("2") || $F{COM_F_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_I_2" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_2}.equals("1-") || $F{COM_I_2}.equals("1") || $F{COM_I_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_2}.equals("2-") || $F{COM_I_2}.equals("2") || $F{COM_I_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_F_2" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_2}.equals("1-") || $F{COM_F_2}.equals("1") || $F{COM_F_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_2}.equals("2-") || $F{COM_F_2}.equals("2") || $F{COM_F_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_I_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_3}.equals("1-") || $F{COM_I_3}.equals("1") || $F{COM_I_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_3}.equals("2-") || $F{COM_I_3}.equals("2") || $F{COM_I_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_I_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COM_F_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_3}.equals("1-") || $F{COM_F_3}.equals("1") || $F{COM_F_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_3}.equals("2-") || $F{COM_F_3}.equals("2") || $F{COM_F_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COM_F_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_CC_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_I}.equals("1-") || $F{COMP_COM_CC_I}.equals("1") || $F{COMP_COM_CC_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_I}.equals("2-") || $F{COMP_COM_CC_I}.equals("2") || $F{COMP_COM_CC_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_CC_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_F}.equals("1-") || $F{COMP_COM_CC_F}.equals("1") || $F{COMP_COM_CC_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_F}.equals("2-") || $F{COMP_COM_CC_F}.equals("2") || $F{COMP_COM_CC_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_CC_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_HP_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_I}.equals("1-") || $F{COMP_COM_HP_I}.equals("1") || $F{COMP_COM_HP_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_I}.equals("2-") || $F{COMP_COM_HP_I}.equals("2") || $F{COMP_COM_HP_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_HP_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_F}.equals("1-") || $F{COMP_COM_HP_F}.equals("1") || $F{COMP_COM_HP_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_F}.equals("2-") || $F{COMP_COM_HP_F}.equals("2") || $F{COMP_COM_HP_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_HP_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_COM_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_I}.equals("1-") || $F{COMP_COM_COM_I}.equals("1") || $F{COMP_COM_COM_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_I}.equals("2-") || $F{COMP_COM_COM_I}.equals("2") || $F{COMP_COM_COM_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_COM_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_F}.equals("1-") || $F{COMP_COM_COM_F}.equals("1") || $F{COMP_COM_COM_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_F}.equals("2-") || $F{COMP_COM_COM_F}.equals("2") || $F{COMP_COM_COM_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_COM_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_MA_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_I}.equals("1-") || $F{COMP_COM_MA_I}.equals("1") || $F{COMP_COM_MA_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_I}.equals("2-") || $F{COMP_COM_MA_I}.equals("2") || $F{COMP_COM_MA_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_COM_MA_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_F}.equals("1-") || $F{COMP_COM_MA_F}.equals("1") || $F{COMP_COM_MA_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_F}.equals("2-") || $F{COMP_COM_MA_F}.equals("2") || $F{COMP_COM_MA_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_COM_MA_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_1}.equals("1-") || $F{ECR_I_1}.equals("1") || $F{ECR_I_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_1}.equals("2-") || $F{ECR_I_1}.equals("2") || $F{ECR_I_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_1}.equals("1-") || $F{ECR_F_1}.equals("1") || $F{ECR_F_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_1}.equals("2-") || $F{ECR_F_1}.equals("2") || $F{ECR_F_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_I_2" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_2}.equals("1-") || $F{ECR_I_2}.equals("1") || $F{ECR_I_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_2}.equals("2-") || $F{ECR_I_2}.equals("2") || $F{ECR_I_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_F_2" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_2}.equals("1-") || $F{ECR_F_2}.equals("1") || $F{ECR_F_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_2}.equals("2-") || $F{ECR_F_2}.equals("2") || $F{ECR_F_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_I_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_3}.equals("1-") || $F{ECR_I_3}.equals("1") || $F{ECR_I_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_3}.equals("2-") || $F{ECR_I_3}.equals("2") || $F{ECR_I_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_I_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="ECR_F_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_3}.equals("1-") || $F{ECR_F_3}.equals("1") || $F{ECR_F_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_3}.equals("2-") || $F{ECR_F_3}.equals("2") || $F{ECR_F_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{ECR_F_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_CC_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_I}.equals("1-") || $F{COMP_ECR_CC_I}.equals("1") || $F{COMP_ECR_CC_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_I}.equals("2-") || $F{COMP_ECR_CC_I}.equals("2") || $F{COMP_ECR_CC_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_CC_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_F}.equals("1-") || $F{COMP_ECR_CC_F}.equals("1") || $F{COMP_ECR_CC_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_F}.equals("2-") || $F{COMP_ECR_CC_F}.equals("2") || $F{COMP_ECR_CC_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_CC_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_HP_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_I}.equals("1-") || $F{COMP_ECR_HP_I}.equals("1") || $F{COMP_ECR_HP_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_I}.equals("2-") || $F{COMP_ECR_HP_I}.equals("2") || $F{COMP_ECR_HP_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_HP_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_F}.equals("1-") || $F{COMP_ECR_HP_F}.equals("1") || $F{COMP_ECR_HP_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_F}.equals("2-") || $F{COMP_ECR_HP_F}.equals("2") || $F{COMP_ECR_HP_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_HP_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_COM_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_I}.equals("1-") || $F{COMP_ECR_COM_I}.equals("1") || $F{COMP_ECR_COM_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_I}.equals("2-") || $F{COMP_ECR_COM_I}.equals("2") || $F{COMP_ECR_COM_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_COM_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_F}.equals("1-") || $F{COMP_ECR_COM_F}.equals("1") || $F{COMP_ECR_COM_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_F}.equals("2-") || $F{COMP_ECR_COM_F}.equals("2") || $F{COMP_ECR_COM_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_COM_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_MA_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_I}.equals("1-") || $F{COMP_ECR_MA_I}.equals("1") || $F{COMP_ECR_MA_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_I}.equals("2-") || $F{COMP_ECR_MA_I}.equals("2") || $F{COMP_ECR_MA_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_ECR_MA_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_F}.equals("1-") || $F{COMP_ECR_MA_F}.equals("1") || $F{COMP_ECR_MA_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_F}.equals("2-") || $F{COMP_ECR_MA_F}.equals("2") || $F{COMP_ECR_MA_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_ECR_MA_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_1}.equals("1-") || $F{LEC_I_1}.equals("1") || $F{LEC_I_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_1}.equals("2-") || $F{LEC_I_1}.equals("2") || $F{LEC_I_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
+		<box>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_1}.equals("1-") || $F{LEC_F_1}.equals("1") || $F{LEC_F_1}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_1}.equals("2-") || $F{LEC_F_1}.equals("2") || $F{LEC_F_1}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_1}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_I_2" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_2}.equals("1-") || $F{LEC_I_2}.equals("1") || $F{LEC_I_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_2}.equals("2-") || $F{LEC_I_2}.equals("2") || $F{LEC_I_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_F_2" mode="Opaque" scaleImage="FillFrame" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_2}.equals("1-") || $F{LEC_F_2}.equals("1") || $F{LEC_F_2}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_2}.equals("2-") || $F{LEC_F_2}.equals("2") || $F{LEC_F_2}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_2}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_I_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_3}.equals("1-") || $F{LEC_I_3}.equals("1") || $F{LEC_I_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_3}.equals("2-") || $F{LEC_I_3}.equals("2") || $F{LEC_I_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_I_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="LEC_F_3" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_3}.equals("1-") || $F{LEC_F_3}.equals("1") || $F{LEC_F_3}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_3}.equals("2-") || $F{LEC_F_3}.equals("2") || $F{LEC_F_3}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LEC_F_3}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_CC_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_I}.equals("1-") || $F{COMP_LEC_CC_I}.equals("1") || $F{COMP_LEC_CC_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_I}.equals("2-") || $F{COMP_LEC_CC_I}.equals("2") || $F{COMP_LEC_CC_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_CC_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_F}.equals("1-") || $F{COMP_LEC_CC_F}.equals("1") || $F{COMP_LEC_CC_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_F}.equals("2-") || $F{COMP_LEC_CC_F}.equals("2") || $F{COMP_LEC_CC_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_CC_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_HP_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_I}.equals("1-") || $F{COMP_LEC_HP_I}.equals("1") || $F{COMP_LEC_HP_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_I}.equals("2-") || $F{COMP_LEC_HP_I}.equals("2") || $F{COMP_LEC_HP_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_HP_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_F}.equals("1-") || $F{COMP_LEC_HP_F}.equals("1") || $F{COMP_LEC_HP_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_F}.equals("2-") || $F{COMP_LEC_HP_F}.equals("2") || $F{COMP_LEC_HP_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_HP_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_COM_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_I}.equals("1-") || $F{COMP_LEC_COM_I}.equals("1") || $F{COMP_LEC_COM_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_I}.equals("2-") || $F{COMP_LEC_COM_I}.equals("2") || $F{COMP_LEC_COM_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_COM_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_F}.equals("1-") || $F{COMP_LEC_COM_F}.equals("1") || $F{COMP_LEC_COM_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_F}.equals("2-") || $F{COMP_LEC_COM_F}.equals("2") || $F{COMP_LEC_COM_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_COM_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_MA_I" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_I}.equals("1-") || $F{COMP_LEC_MA_I}.equals("1") || $F{COMP_LEC_MA_I}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_I}.equals("2-") || $F{COMP_LEC_MA_I}.equals("2") || $F{COMP_LEC_MA_I}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_I}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="COMP_LEC_MA_F" mode="Opaque" scaleImage="FillFrame">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_F}.equals("1-") || $F{COMP_LEC_MA_F}.equals("1") || $F{COMP_LEC_MA_F}.equals("1+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_F}.equals("2-") || $F{COMP_LEC_MA_F}.equals("2") || $F{COMP_LEC_MA_F}.equals("2+")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{COMP_LEC_MA_F}.equals("?")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#808080" scaleImage="FillFrame"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Lignes Grises">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Dataset1" uuid="123cc87e-2cc2-4b09-b6df-4340692d5a73">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN TRIL"/>
+		<parameter name="SCHOOL_CODE" class="java.util.List"/>
+		<parameter name="SCHOOL_YEAR" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="CLASS_CODE" class="java.util.List"/>
+		<parameter name="GRADE" class="java.util.List"/>
+		<queryString>
+			<![CDATA[select * from (SELECT DISTINCT S.SCHOOL_NAME, sr.school_year,
+SR.SCHOOL_CODE,
+SR.GRADE,
+SR.PERSON_ID,
+P.LEGAL_NAME_UPPER,
+P.GENDER,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_CLASS_CODE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, SR.GRADE, '009') as class_code,
+REPLACE(PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ABS_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR), ',', '.') AS YTD_ABS,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_RET_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS YTD_LATES,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_REPORT_PEI2(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS PEI,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_REPORT_ANOMALIE2(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS ANOMALIE,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ALS(SR.PERSON_ID) AS ALS,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NATIVE_FLAG(SR.PERSON_ID) AS PNMI,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'I','003') AS COM_I_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'F','003')  AS COM_F_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'I','003') AS COM_I_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'F','003') AS COM_F_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'I','003') AS COM_I_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'F','003') AS COM_F_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'I','002') AS ECR_I_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'F','002') AS ECR_F_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'I','002') AS ECR_I_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'F','002') AS ECR_F_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'I','002') AS ECR_I_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'F','002') AS ECR_F_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'I','001') AS LEC_I_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 2), 'F','001') AS LEC_F_3,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'I','001') AS LEC_I_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, PKG_RAPPORT_DE_RENDEMENT_ELE.GET_SCHOOL_YEAR_RELATIVE(SR.SCHOOL_YEAR, 1), 'F','001') AS LEC_F_2,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'I', '001') AS LEC_I_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_NOTE_ELE(SR.PERSON_ID, SR.SCHOOL_YEAR, 'F','001') AS LEC_F_1,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '1', '003', SR.GRADE) AS COMP_COM_CC_I ,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '1', '003', SR.GRADE) AS COMP_COM_CC_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '2', '003', SR.GRADE) AS COMP_COM_HP_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '2', '003', SR.GRADE) AS COMP_COM_HP_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '3', '003', SR.GRADE) AS COMP_COM_COM_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '3', '003', SR.GRADE) AS COMP_COM_COM_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '4', '003', SR.GRADE) AS COMP_COM_MA_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '4', '003', SR.GRADE) AS COMP_COM_MA_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '1', '002', SR.GRADE) AS COMP_ECR_CC_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '1', '002', SR.GRADE) AS COMP_ECR_CC_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '2', '002', SR.GRADE) AS COMP_ECR_HP_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '2', '002', SR.GRADE) AS COMP_ECR_HP_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '3', '002', SR.GRADE) AS COMP_ECR_COM_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '3', '002', SR.GRADE) AS COMP_ECR_COM_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '4', '002', SR.GRADE) AS COMP_ECR_MA_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '4', '002', SR.GRADE) AS COMP_ECR_MA_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '1', '001', SR.GRADE) AS COMP_LEC_CC_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '1', '001', SR.GRADE) AS COMP_LEC_CC_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '2', '001', SR.GRADE) AS COMP_LEC_HP_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '2', '001', SR.GRADE) AS COMP_LEC_HP_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '3', '001', SR.GRADE) AS COMP_LEC_COM_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '3', '001', SR.GRADE) AS COMP_LEC_COM_F,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'I', '009', '4', '001', SR.GRADE) AS COMP_LEC_MA_I,
+PKG_RAPPORT_DE_RENDEMENT_ELE.GET_MOY_COMP_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, 'F', '009', '4', '001', SR.GRADE) AS COMP_LEC_MA_F
+FROM STUDENT_REGISTRATIONS SR
+INNER JOIN PERSONS P
+ON P.PERSON_ID = SR.PERSON_ID
+INNER JOIN SCHOOLS S
+ON SR.SCHOOL_CODE = S.SCHOOL_CODE
+WHERE  SR.SCHOOL_YEAR = $P{SCHOOL_YEAR}
+AND $X{IN, SR.SCHOOL_CODE, SCHOOL_CODE}
+AND $X{IN, SR.GRADE, GRADE}
+AND SR.GRADE IN ('01','02','03','04','05','06','07','08')
+AND SR.OSR_FLAG = 'x'
+AND SR.STATUS_INDICATOR_CODE IN ('Active', 'Inactive')
+ORDER BY S.SCHOOL_NAME ASC, SR.GRADE ASC, P.LEGAL_NAME_UPPER ASC)
+where $X{IN, class_code, CLASS_CODE}]]>
+		</queryString>
+		<field name="SCHOOL_NAME" class="java.lang.String"/>
+		<field name="SCHOOL_YEAR" class="java.lang.String"/>
+		<field name="SCHOOL_CODE" class="java.lang.String"/>
+		<field name="GRADE" class="java.lang.String"/>
+		<field name="PERSON_ID" class="java.lang.String"/>
+		<field name="LEGAL_NAME_UPPER" class="java.lang.String"/>
+		<field name="GENDER" class="java.lang.String"/>
+		<field name="CLASS_CODE" class="java.lang.String"/>
+		<field name="YTD_ABS" class="java.lang.Double"/>
+		<field name="YTD_LATES" class="java.lang.Double"/>
+		<field name="PEI" class="java.lang.String"/>
+		<field name="ANOMALIE" class="java.lang.String"/>
+		<field name="ALS" class="java.lang.String"/>
+		<field name="PNMI" class="java.lang.String"/>
+		<field name="COM_I_3" class="java.lang.String"/>
+		<field name="COM_F_3" class="java.lang.String"/>
+		<field name="COM_I_2" class="java.lang.String"/>
+		<field name="COM_F_2" class="java.lang.String"/>
+		<field name="COM_I_1" class="java.lang.String"/>
+		<field name="COM_F_1" class="java.lang.String"/>
+		<field name="ECR_I_3" class="java.lang.String"/>
+		<field name="ECR_F_3" class="java.lang.String"/>
+		<field name="ECR_I_2" class="java.lang.String"/>
+		<field name="ECR_F_2" class="java.lang.String"/>
+		<field name="ECR_I_1" class="java.lang.String"/>
+		<field name="ECR_F_1" class="java.lang.String"/>
+		<field name="LEC_I_3" class="java.lang.String"/>
+		<field name="LEC_F_3" class="java.lang.String"/>
+		<field name="LEC_I_2" class="java.lang.String"/>
+		<field name="LEC_F_2" class="java.lang.String"/>
+		<field name="LEC_I_1" class="java.lang.String"/>
+		<field name="LEC_F_1" class="java.lang.String"/>
+		<field name="COMP_COM_CC_I" class="java.lang.String"/>
+		<field name="COMP_COM_CC_F" class="java.lang.String"/>
+		<field name="COMP_COM_HP_I" class="java.lang.String"/>
+		<field name="COMP_COM_HP_F" class="java.lang.String"/>
+		<field name="COMP_COM_COM_I" class="java.lang.String"/>
+		<field name="COMP_COM_COM_F" class="java.lang.String"/>
+		<field name="COMP_COM_MA_I" class="java.lang.String"/>
+		<field name="COMP_COM_MA_F" class="java.lang.String"/>
+		<field name="COMP_ECR_CC_I" class="java.lang.String"/>
+		<field name="COMP_ECR_CC_F" class="java.lang.String"/>
+		<field name="COMP_ECR_HP_I" class="java.lang.String"/>
+		<field name="COMP_ECR_HP_F" class="java.lang.String"/>
+		<field name="COMP_ECR_COM_I" class="java.lang.String"/>
+		<field name="COMP_ECR_COM_F" class="java.lang.String"/>
+		<field name="COMP_ECR_MA_I" class="java.lang.String"/>
+		<field name="COMP_ECR_MA_F" class="java.lang.String"/>
+		<field name="COMP_LEC_CC_I" class="java.lang.String"/>
+		<field name="COMP_LEC_CC_F" class="java.lang.String"/>
+		<field name="COMP_LEC_HP_I" class="java.lang.String"/>
+		<field name="COMP_LEC_HP_F" class="java.lang.String"/>
+		<field name="COMP_LEC_COM_I" class="java.lang.String"/>
+		<field name="COMP_LEC_COM_F" class="java.lang.String"/>
+		<field name="COMP_LEC_MA_I" class="java.lang.String"/>
+		<field name="COMP_LEC_MA_F" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SCHOOL_YEAR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="SCHOOL_CODE" class="java.util.List" isForPrompting="false"/>
+	<parameter name="GRADE" class="java.util.List" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="CLASS_CODE" class="java.util.List" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT P.PERSON_ID
+FROM PERSONS P
+WHERE ROWNUM = 1]]>
+	</queryString>
+	<field name="PERSON_ID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47">
+			<textField>
+				<reportElement x="90" y="0" width="1093" height="32" uuid="67a40bf0-9db7-48d5-9479-7e3ccaace9fc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rapport Élémentaire - Littératie - Notes et Compétences - " + $P{SCHOOL_YEAR}.substring( 0, 4 ) + "/" + $P{SCHOOL_YEAR}.substring( 4, 8 )]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="-14" width="90" height="61" uuid="073e04c9-d300-4db2-b18f-a99c41181331"/>
+				<imageExpression><![CDATA["\\\\TINTINV1\\photosdeseleves\\CSCFN_LOGO.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60">
+			<staticText>
+				<reportElement x="385" y="0" width="114" height="30" uuid="e1685c01-11a0-4fe3-ab97-836360eab455">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Communication Orale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="30" width="38" height="30" uuid="81cf9200-bc0c-49b2-b6ea-bb92952eece9"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année d'avant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="30" width="38" height="30" uuid="87b9cc85-ad73-4651-8731-f81966b75b55">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année passée]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="30" width="38" height="30" uuid="653828bb-80e8-4c43-8b59-9f825662f0b1"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année présente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="30" width="38" height="30" uuid="57e098de-9f2c-47c1-8c89-84a90bc7fdb5"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année d'avant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="537" y="30" width="38" height="30" uuid="6e878ced-a958-4a04-a829-c48fe38ccfa2"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année passée]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="0" width="114" height="30" uuid="a173aedc-3b8a-4e1b-b6f5-5b3f6834c345">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Écriture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="575" y="30" width="38" height="30" uuid="d6b8a765-968a-4230-a313-25148d06c76f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année présente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="613" y="30" width="38" height="30" uuid="48bede64-a83e-4cb9-8c20-1e089244cd8a"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année d'avant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="651" y="30" width="38" height="30" uuid="a29fc296-5a94-40da-909a-e433441fae19"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Année passée]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="613" y="0" width="114" height="30" uuid="7fc5712e-dd21-43e1-8571-8b64d1378f65">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Lecture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="689" y="30" width="38" height="30" uuid="f608d7b5-0d3c-4ab8-9761-789f7ff301b2"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année présente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="727" y="30" width="38" height="30" uuid="2036198d-e672-49ac-85bf-daf70a1e1a7b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="765" y="30" width="38" height="30" uuid="11398fde-181a-4c1c-816c-84c528d59164">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[HP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="727" y="0" width="152" height="30" uuid="c89187be-6b4c-47cb-8e96-e169ccf277cc"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Compétence -
+Communication Orale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="803" y="30" width="38" height="30" uuid="5aff38cd-e3b8-4540-9240-181f6271457e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[COM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="841" y="30" width="38" height="30" uuid="300503d0-56e1-4941-af91-6cb29f058159">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="879" y="30" width="38" height="30" uuid="fe83e45a-27d4-40da-ba13-0ad29e229319">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="879" y="0" width="152" height="30" uuid="aa10aafe-edda-4c0d-8faf-db36da85e8d4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Compétence -
+Écriture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="917" y="30" width="38" height="30" uuid="e17502f8-ca4e-4163-965f-a9b9e8f8c554">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[HP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1069" y="30" width="38" height="30" uuid="cdbb27d3-644a-4cd9-81ab-ab55a135c382">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[HP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1107" y="30" width="38" height="30" uuid="d6a362b5-e5f7-4634-9981-6e7416735735"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[COM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1031" y="0" width="152" height="30" uuid="77aceddd-00e2-4117-8a14-647f3b8d8fe4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Compétence -
+Lecture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1145" y="30" width="38" height="30" uuid="c0ee8772-dffc-4c8e-90e2-df1c2e797c92"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="955" y="30" width="38" height="30" uuid="63742a87-33b9-41f7-90ba-ebd9e8f379c7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[COM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1031" y="30" width="38" height="30" uuid="08d3c32a-7abe-436c-ba1c-d35495d1dc72">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="993" y="30" width="38" height="30" uuid="158a9689-b024-4e1b-a2eb-e0f4e3e73b78">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="40">
+			<componentElement>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1187" height="40" uuid="8cdb953c-4e54-4653-9735-0988f244b5fd">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="8aba496f-da71-4677-a11f-60e2d6286431">
+						<datasetParameter name="SCHOOL_CODE">
+							<datasetParameterExpression><![CDATA[$P{SCHOOL_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SCHOOL_YEAR">
+							<datasetParameterExpression><![CDATA[$P{SCHOOL_YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="GRADE">
+							<datasetParameterExpression><![CDATA[$P{GRADE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="c992c4ce-8a75-45c0-9ecc-d97ef9aa5520">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="20" uuid="1808044d-507b-44f0-bb1b-345a000bdcdc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Nom]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20" uuid="85127e0b-3349-43c8-9202-1ec3c712db0a"/>
+								<box padding="3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEGAL_NAME_UPPER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="1265c6f8-7119-4a8b-9b8b-cfb2ffdf4227">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="30" height="20" uuid="8f8c367d-0933-4956-90eb-a4b635d651f6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[École]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="53a8446f-42e6-4d50-a360-b81a0459f4ec"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SCHOOL_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="20" uuid="ab28c8b1-1d9c-47e9-ae74-565abb5d3426">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="20" height="20" uuid="04ca3d27-ffb6-4fc1-a523-8e05b76bc182"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6"/>
+								</textElement>
+								<text><![CDATA[Niveau]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="20" height="20" uuid="059c4d13-fdd5-41a5-bbe7-fb3082bf97b0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{GRADE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="2b8bdc92-24f6-4c39-9db7-6013a10b3c49">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="30" height="20" uuid="74c22b5b-4d02-4df2-bfe6-523218d73615"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Classe]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="85a88760-537d-4a60-ba1a-aa907215f157"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CLASS_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="20" uuid="a6c369f3-ee97-43d6-b8b9-90c425c3d374">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="20" height="20" uuid="c530470f-a871-483e-9f02-bfe3eb71aa56"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Sexe]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="20" height="20" uuid="e1b3e4c7-2801-4aa9-a4be-e271e340e7ff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{GENDER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="a9f411b6-38fe-4145-b5b5-7b5db23375c1">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="30" height="20" uuid="102bceb0-2380-4383-9c8b-347bfbb7fefc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="6"/>
+								</textElement>
+								<text><![CDATA[Absences]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="Absences" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="a2e1cb0a-195e-402b-84c7-c7f780984f95"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{YTD_ABS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="14d748d4-c08a-4b73-a00d-61a6456ca90e">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="30" height="20" uuid="5cab239e-1235-4148-9272-c91828d33f9b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[Retards]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="Retards" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="2233f581-6d7a-42a9-989b-8e45d58e81e5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{YTD_LATES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="25" uuid="e00876d0-c35d-4e58-acfb-8af6e4f7b979">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="25" height="20" uuid="1a13d605-4588-4bed-b9c2-0495cec268b6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[PEI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="f82ad94f-5e5d-4aa6-8493-d3c30e5d2bbc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PEI} == null ? "Non" : ($F{PEI}.equals("x") ? "Oui" : "Non")]]></textFieldExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Drilldown_PEI"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="P_PERSON_ID">
+									<hyperlinkParameterExpression><![CDATA[$F{PERSON_ID}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="65" uuid="92cb8c78-adee-497b-b8b3-23494fb30d9c">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="65" height="20" uuid="14cabcc5-5787-4a5d-9d4a-1b9af1ea9692"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ANOMALIE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="65" height="20" uuid="b36ad3ea-96d5-46aa-8451-2c314d4b0749"/>
+								<box padding="3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ANOMALIE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="20" uuid="aecb3c04-56f9-4565-abab-a34a908d0b24">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="20" height="20" uuid="4305f4d6-4869-41c9-b0ab-23e375908abc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ALS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="20" height="20" uuid="c9eabbfc-4980-4a64-9feb-bb14b2b258dd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ALS}]]></textFieldExpression>
+								<hyperlinkParameter name="_report">
+									<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Drilldowns_partages/details_alf"]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+								<hyperlinkParameter name="ACCOUNT_ID">
+									<hyperlinkParameterExpression><![CDATA[$F{PERSON_ID}]]></hyperlinkParameterExpression>
+								</hyperlinkParameter>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="25" uuid="60c433fa-3bbe-4707-ad2b-ca8ad927353d">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="25" height="20" uuid="b93cb263-c6a7-4f0b-b3fc-07d432bb5023"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[PNMI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="f09e53e3-ce5e-49c7-9796-13edf8fc0a22"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PNMI}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="6bb85923-dc2e-4e98-a507-d28b029ac06c">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="209394d1-9a0d-4c15-9393-916f3708d9a0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COM_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="f2ec2333-17fd-46a0-9808-867cc1d5c88b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_I_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="cbe8ce93-b162-4ef7-9905-de892776f709">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="03ff4d9f-901f-4b29-a185-76f22ecb0397"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<box>
+								<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COM_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="8195ca20-fed9-446b-b82d-a4164bbbb75f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_F_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="fc359469-5745-4f22-bd7e-20574f1ea7e4">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="c61b0e75-59ff-4c21-8e05-bc402d03bfad"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COM_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="28bdb779-95f2-45e5-8a50-0125e99b1fb4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_I_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="2b301d52-f12e-482a-a3c2-18f4b51c9d23">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="e6fcfdc0-19cd-4075-8f6d-6130acc3142e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="COM_F_2" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="19" height="20" backcolor="#FFFFFF" uuid="c53029b4-a4da-44f0-b8af-df92fffaeeeb"/>
+								<box>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_F_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="9e4fe041-6c96-4756-a624-3e10f1543841">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="0ee55bef-644e-4975-b85f-c023b0077a3a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="COM_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="d9cebcfd-ff98-4d86-87a0-5ce21709bf08"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_I_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="8cb86559-49aa-4142-8e12-122c42379bb9">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="5270c14a-2337-43c3-9e9c-aa55f482c5b7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="COM_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="1dfdad4f-b4a4-473d-a421-a264f4f0b8ac"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COM_F_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="c322f123-c038-43f2-b67c-7bc27d4845f3">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="3879580a-4c7f-4bc0-b9d7-a730a3ef7c7c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="ECR_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="be8c6d30-b535-4b0c-867d-191343fefa18"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_I_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="4f37013c-8265-434b-8ed8-29fb6db38995">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="9a366aa8-ad01-43e0-ad08-e7f2b3d1ac3a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="ECR_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="67a111b9-76c1-4003-a7b5-953dc38278c5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_F_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="8b525d1c-d42b-4531-83c0-bbcb5af31c30">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="33ac9418-4a50-4242-a897-4c453920d26e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="ECR_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3fd08a01-5b18-4e18-ab33-8d7d9437b5fb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_I_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="9900c479-93f8-4b49-849c-8cffcf13c052">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="de809fb5-bbc0-4a29-84fd-81a7582c3c54"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="ECR_F_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="0ae85e14-e1a8-456d-b8ad-6d5837d73eda"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_F_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="5c661fa2-a393-44eb-900f-8311148f5b30">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="3297c6d5-4f75-4d53-aab5-46c3f3802d1e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="ECR_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="44df978b-2444-4a5b-9be7-20f80eda2974"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_I_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="2d1d5558-0e45-47a9-8bea-27f5a5921dd3">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="0f0cb5b3-1f38-461a-9a66-d63951007f55"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="ECR_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="df20094e-026b-4c26-9e5b-428e79a544e6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ECR_F_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="1fe28f63-d28d-4b22-9222-70cd8a229732">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="3f6addba-8d67-4ebf-ab40-dd3d62a1e513"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="LEC_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="2a995ce9-c442-4c2f-aeb6-35835e7fce5b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_I_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="b8500819-de6f-4415-9498-843826e3ee6f">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="ac1b47e6-ce7f-4d12-8a33-17cfbae8bd12"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="LEC_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="fc59b1ad-296e-47a4-af35-e144d5b7ce56"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_F_3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="89aabea8-599b-4c7b-bdb0-3e3cc53f20a7">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="000a6b98-4adb-48ab-97da-beaff552d990"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="LEC_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3a9628b9-bb95-41e5-95c6-32b961a59b32"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_I_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="e5e25b89-f906-4bb7-b56d-aa46c4c9d4cd">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="b25f48df-0eb1-4829-94dc-9909938f4c77"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="LEC_F_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="6859dca4-296a-489e-9696-fb9b9e46669b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_F_2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="02594c39-9fac-4aac-bdf6-73322904e171">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="7fb5793a-652a-4300-b1ed-2e8532fab344"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="LEC_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="a4c89070-1fbf-4ac7-873c-b6558b785b0b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_I_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="fc3d3481-f070-40e9-9b5d-3dd91e5bdb95">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="fb805126-93fe-4fdc-ac83-3b060c331a6f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="LEC_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="f2d20f07-9cf4-44f2-a5c6-7e3465a92fa4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LEC_F_1}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="86a44c10-3e29-4d59-b572-ea137fd5c3c7">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="2ea1334d-54ca-4de7-972f-a410687d6c9d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="88be22bf-a7e2-4d20-af40-48e52ee90f74"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_CC_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="b0bf889e-f8bf-4dea-8512-43e10e4a8a1e">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="b1dc432c-86c7-4382-8e6a-2d0851a1c8c8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="518373d6-365f-42ba-9f13-5d3250c6a046"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_CC_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="614ae680-44c2-4e7e-9586-fd579200b331">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="bed6d7c1-9fee-442d-b47e-3abd94436f3f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3e5a8e34-304b-40e8-9955-3178ee63663c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_HP_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="cfb5ba9e-8999-42cb-b136-59a3494f6e9d">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="3341a34b-ca97-4486-ab96-48c52c298620"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="148bed9d-1049-4ea4-acd7-d84ff4ce4401"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_HP_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="dc621154-1286-4ee9-a9de-f2e8c4e74fac">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="86d29f6e-5c01-4cb3-804b-0518d2c3bb37"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="fbb65181-6e6b-4380-84c2-de884005cf66"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_COM_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="4b123bca-b805-431e-9369-d2926f2b8ab5">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="f804dd4a-693b-46c0-88ec-26bbdb756f9e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="c734b8e5-73d5-4f50-adc8-e357751ab5ff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_COM_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="d93142cd-7ce2-4717-9d98-dbf3e89c770b">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="2edb3278-4ea5-47b7-9c93-dc9409e2b56e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="e5f1b084-11fc-44af-b0c2-866a659ffe6d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_MA_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="c2865eef-7404-4e12-abc9-43a9a0ccbae2">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="9ccbe48c-d12b-4fa9-854e-5b9a3ffe37b6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_COM_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="7bb96954-4cb9-4a36-a536-7a8014531b31"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_COM_MA_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="f45b7b55-1754-44fa-a417-8d7039b6d5e1">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="1d04fe47-2a31-44d2-94f7-f40b694397b6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="b9ac7aab-8ee3-4a2d-9bd1-01905b73ec5e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_CC_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="fa4a324d-fbe4-4f20-99c5-5c78f71b148f">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="a89a5285-1084-47b6-9bb1-7f87240af285"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dcaab4f5-06a7-4974-a08a-12edf0de42d1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_CC_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="1354a56a-2bcb-4468-8225-26576fe314b3">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="b35754b6-985b-49f0-9f8b-4adf41d5aaa4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="5553d2c7-e0a2-4760-9307-e3d0deebc9b9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_HP_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="44768d4d-f284-4486-9dff-c3c1463c75b4">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="fe2c79db-7be6-42cf-bb55-3bcd28777afc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement key="" style="COMP_ECR_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dbcfa26c-1fef-4edd-9d61-a0abb1c182fc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_HP_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="8e7e8055-913e-42f2-8a2b-b64ad27b7f2d">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="e63baf2b-0356-41cd-ae0e-01805eabbac2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="272a9ab0-d242-4472-af79-a35ae3c15ef9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_COM_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="a0190004-ffb6-4e40-bd4a-6b2f7a0ed427">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="848c12a2-81b0-4472-9064-9e5ad8cfb109"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dc41281f-a54e-4e33-9a1b-c8cabe745379"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_COM_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="b302dfa3-05ad-420a-9a08-11789e2ccaab">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="a634ed9f-d636-4d7c-a9a0-1ae20fd9df3f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="82abd310-84a8-48ed-b6fe-aa98fa9abd50"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_MA_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="4a8fd1e2-c2d5-445c-af01-c1ee5c6611e6">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="27049955-403d-4004-814c-4ca60f807873"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_ECR_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="d03af4b8-c7e2-49cb-a6d6-452484ef04c5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_ECR_MA_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="10cc7eac-4b98-4a1f-a467-3fe0ee710624">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="e199ef4d-8f43-422c-9ecc-bbafc7544301"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="361288ed-106c-4c6d-a3f4-a0a5c9689283"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_CC_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="1b35e9ae-ec17-47c4-9fd8-288ac5bfe170">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="240768e2-d555-4e5f-a56d-55c719e68253"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="9e6c85a2-7f46-43b7-833f-0f2186a0cb83"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_CC_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="38ac16aa-689a-4d1c-84fe-eec7892d0397">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="8f7904e8-61c7-46a8-800d-2d3fc01bf20a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="a5cd3193-d11e-4634-bfc1-ede234e49ebd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_HP_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="7a73cc39-3663-43e1-b17d-7999a93fddb0">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="b0a8ffbf-5ee0-467b-8e51-4d303aad6517"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="cb43e53d-9ddb-4092-b3a2-43eb39b5e4d0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_HP_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="b2ddd85d-8198-4a29-bcf2-5d1212478568">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="7d2d905c-72e0-4769-a98e-98b24afa4f5c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="c63a12e3-0223-46c9-9f39-c77b470a4156"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_COM_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="b5296021-71af-4f99-82a0-79b8e30819de">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="e436d995-d68e-4c0c-a1be-279a84dae2aa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="40a05978-6989-460e-910b-3b4bbb539d2c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_COM_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="4f78b162-f0b1-4735-bd63-18d079b6e365">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="d15ded2f-6137-47a2-9471-9296a9f8edec"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[I]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="f4bf5b50-b9fe-4873-8a83-34ec076b1eeb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_MA_I}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="19" uuid="997ff59d-f98f-4932-9226-de23061aa3f7">
+						<jr:columnHeader style="Table_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="19" height="20" uuid="b2afa41f-2aa1-4a52-b30a-82a46bc18887"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[F]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<textField isBlankWhenNull="true">
+								<reportElement style="COMP_LEC_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="64cd91a1-8774-4b52-82d3-1cd716487623"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{COMP_LEC_MA_F}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
