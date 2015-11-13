@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2015-11-10T15:46:14 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rapport_rendement_num_note_comp_tab" pageWidth="1315" pageHeight="792" orientation="Landscape" columnWidth="1275" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="5217b4da-6f37-4c1d-a62f-237e47fa6f59">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN Tril"/>
+<!-- 2015-11-10T14:52:04 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rapport_rendement_num_note_comp_tab" pageWidth="1224" pageHeight="792" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="5217b4da-6f37-4c1d-a62f-237e47fa6f59">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="ireport.jasperserver.url" value="https://rapports.franco-nord.ca/trilliumReports/"/>
 	<property name="ireport.jasperserver.user" value="superuser|CSCFN"/>
-	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_num_notes_comp_tab_files/main_jrxml"/>
-	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_num_notes_comp_tab"/>
+	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/rapport_rendement_num_note_comp_tab_niveau_prog_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/rapport_rendement_num_note_comp_tab_niveau_prog"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Table 2_TH" mode="Opaque" backcolor="#73B0E6">
 		<box>
@@ -1617,6 +1617,16 @@
 			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
+	<style name="Actif ou inactif">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
+			<style forecolor="#CFCFCF"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
+			<style mode="Opaque" backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
 	<subDataset name="Dataset1" uuid="1df92132-cbba-4ce7-ad1c-125552ee2bb1">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN TRIL"/>
 		<parameter name="SCHOOL_CODE" class="java.util.List" isForPrompting="false"/>
@@ -1630,7 +1640,7 @@ to_number(SR.GRADE) as grade,
 SR.PERSON_ID,
 P.LEGAL_NAME_UPPER,
 P.GENDER,
-Sr.status_indicator_code,
+SR.Status_indicator_code, 
 PKG_RAPPORT_DE_RENDEMENT_ELE.GET_CLASS_CODE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, SR.GRADE, '9999000000030') as class_code,
 REPLACE(PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ABS_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR), ',', '.') AS YTD_ABS,
 PKG_RAPPORT_DE_RENDEMENT_ELE.GET_RET_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS YTD_LATES,
@@ -1880,7 +1890,7 @@ WHERE ROWNUM = 1]]>
 	<title>
 		<band height="40">
 			<textField>
-				<reportElement x="79" y="0" width="1071" height="32" uuid="28f06353-1ad5-43af-973d-b12f828099d7">
+				<reportElement x="79" y="0" width="1072" height="32" uuid="28f06353-1ad5-43af-973d-b12f828099d7">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
@@ -1893,21 +1903,13 @@ WHERE ROWNUM = 1]]>
 				<reportElement x="0" y="-10" width="79" height="50" uuid="95fe47b9-af4f-4182-86a2-260cd1107d34"/>
 				<imageExpression><![CDATA["\\\\TINTINV1\\photosdeseleves\\CSCFN_LOGO.png"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="1155" y="0" width="120" height="32" forecolor="#E62C29" uuid="d2f15074-b0f3-4108-b515-535099b87fb1"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="8"/>
-				</textElement>
-				<text><![CDATA[Ce rapport dépasse les dimensions d'impression]]></text>
-			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="40" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement x="440" y="0" width="72" height="20" uuid="6b36279f-811e-4abc-8618-67d1e0ea6084"/>
+				<reportElement x="440" y="0" width="48" height="20" uuid="6b36279f-811e-4abc-8618-67d1e0ea6084"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -1920,22 +1922,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Numérisation]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="440" y="20" width="24" height="20" uuid="eeec1699-1d20-4e6a-9bcc-0193b4241876">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="20" width="24" height="20" uuid="d1898246-5fa3-42bf-b298-b65f8ec48ce4">
+				<reportElement x="440" y="20" width="24" height="20" uuid="d1898246-5fa3-42bf-b298-b65f8ec48ce4">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1950,7 +1937,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="488" y="20" width="24" height="20" uuid="33e964f5-5de6-4476-a4b6-f50bcbd284e0">
+				<reportElement x="464" y="20" width="24" height="20" uuid="33e964f5-5de6-4476-a4b6-f50bcbd284e0">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1965,7 +1952,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="512" y="0" width="72" height="20" uuid="9aa75435-6b79-4087-b77d-1c0af05ccf9e"/>
+				<reportElement x="488" y="0" width="48" height="20" uuid="9aa75435-6b79-4087-b77d-1c0af05ccf9e"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -1978,7 +1965,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Mesure]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="536" y="20" width="24" height="20" uuid="bd883917-5ee4-47e6-aa3e-9bb70c585019">
+				<reportElement x="488" y="20" width="24" height="20" uuid="bd883917-5ee4-47e6-aa3e-9bb70c585019">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1993,7 +1980,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="560" y="20" width="24" height="20" uuid="38af8cb1-e80a-4056-a6b8-78069c58a423">
+				<reportElement x="512" y="20" width="24" height="20" uuid="38af8cb1-e80a-4056-a6b8-78069c58a423">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2008,22 +1995,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="512" y="20" width="24" height="20" uuid="c623f8a1-e8f1-47a0-9676-a4d68963f120">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="584" y="0" width="72" height="20" uuid="8a7f601f-366e-4f00-8627-dc052572bd87"/>
+				<reportElement x="536" y="0" width="48" height="20" uuid="8a7f601f-366e-4f00-8627-dc052572bd87"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -2036,7 +2008,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Traitement des données]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="608" y="20" width="24" height="20" uuid="b0ad4594-d5bd-453d-8e5a-41c338b4f51a">
+				<reportElement x="536" y="20" width="24" height="20" uuid="b0ad4594-d5bd-453d-8e5a-41c338b4f51a">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2051,7 +2023,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="632" y="20" width="24" height="20" uuid="9e29f083-244c-445a-a564-43d415308d65">
+				<reportElement x="560" y="20" width="24" height="20" uuid="9e29f083-244c-445a-a564-43d415308d65">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2066,22 +2038,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="584" y="20" width="24" height="20" uuid="eb6840c1-ba8b-4f8a-b717-a22a6ff51d1e">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="656" y="0" width="72" height="20" uuid="1fedcd80-c49a-47b1-be31-30f5c03ff580"/>
+				<reportElement x="584" y="0" width="48" height="20" uuid="1fedcd80-c49a-47b1-be31-30f5c03ff580"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -2094,7 +2051,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Modélisation et sens du nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="680" y="20" width="24" height="20" uuid="798df355-3f5b-4da5-9798-ad5c63e08c96">
+				<reportElement x="584" y="20" width="24" height="20" uuid="798df355-3f5b-4da5-9798-ad5c63e08c96">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2109,7 +2066,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="704" y="20" width="24" height="20" uuid="705c9d7d-2fc6-46d8-9fd8-1b2cd3599733">
+				<reportElement x="608" y="20" width="24" height="20" uuid="705c9d7d-2fc6-46d8-9fd8-1b2cd3599733">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2124,22 +2081,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="656" y="20" width="24" height="20" uuid="518cfe91-da38-44f0-b042-712e0d8749b4">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="728" y="0" width="72" height="20" uuid="2cd39f05-eb5e-4d73-b293-e375c2271470"/>
+				<reportElement x="632" y="0" width="48" height="20" uuid="2cd39f05-eb5e-4d73-b293-e375c2271470"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -2152,7 +2094,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Géométrie et sens de l'espace]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="752" y="20" width="24" height="20" uuid="b7e30a09-a2ef-4dec-8c0b-0f8a3c5c2b37">
+				<reportElement x="632" y="20" width="24" height="20" uuid="b7e30a09-a2ef-4dec-8c0b-0f8a3c5c2b37">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2167,7 +2109,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="776" y="20" width="24" height="20" uuid="2d488c1e-1674-4d70-9206-d9f2e1d2c40d">
+				<reportElement x="656" y="20" width="24" height="20" uuid="2d488c1e-1674-4d70-9206-d9f2e1d2c40d">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2182,22 +2124,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="728" y="20" width="24" height="20" uuid="91a41661-6465-4e22-b5cd-eaaf41f2dfa3">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="848" y="20" width="24" height="20" uuid="ea4c636c-1de3-49ab-b742-cd046e94b931">
+				<reportElement x="728" y="20" width="24" height="20" uuid="ea4c636c-1de3-49ab-b742-cd046e94b931">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2212,7 +2139,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="800" y="0" width="96" height="20" uuid="b267d8b3-640e-4357-9132-5a4536ff9eaf">
+				<reportElement x="680" y="0" width="96" height="20" uuid="b267d8b3-640e-4357-9132-5a4536ff9eaf">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2227,7 +2154,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Compétence - Numérisation]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="824" y="20" width="24" height="20" uuid="fb79c392-854a-49a5-a688-e20d7238c154">
+				<reportElement x="704" y="20" width="24" height="20" uuid="fb79c392-854a-49a5-a688-e20d7238c154">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2242,7 +2169,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="800" y="20" width="24" height="20" uuid="0f7de19e-24aa-4360-bf84-95a87d177bf0">
+				<reportElement x="680" y="20" width="24" height="20" uuid="0f7de19e-24aa-4360-bf84-95a87d177bf0">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2257,7 +2184,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="872" y="20" width="24" height="20" uuid="d8ccbe34-5c57-4395-bbfe-d7604db92b73">
+				<reportElement x="752" y="20" width="24" height="20" uuid="d8ccbe34-5c57-4395-bbfe-d7604db92b73">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2272,7 +2199,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="968" y="20" width="24" height="20" uuid="94221049-9320-4568-8865-618f07081ca8">
+				<reportElement x="848" y="20" width="24" height="20" uuid="94221049-9320-4568-8865-618f07081ca8">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2287,7 +2214,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="896" y="0" width="96" height="20" uuid="d23fc7a9-60c4-4e77-92b0-d000977c6cdf">
+				<reportElement x="776" y="0" width="96" height="20" uuid="d23fc7a9-60c4-4e77-92b0-d000977c6cdf">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2302,7 +2229,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Compétence - Mesure]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="896" y="20" width="24" height="20" uuid="82a34ce5-b7c9-4876-b7fa-aea84b32d04f">
+				<reportElement x="776" y="20" width="24" height="20" uuid="82a34ce5-b7c9-4876-b7fa-aea84b32d04f">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2317,7 +2244,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="944" y="20" width="24" height="20" uuid="aeff7086-9630-43f4-bee7-af3f4fbb5ca6">
+				<reportElement x="824" y="20" width="24" height="20" uuid="aeff7086-9630-43f4-bee7-af3f4fbb5ca6">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2332,7 +2259,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="920" y="20" width="24" height="20" uuid="1893a621-045f-4959-89b6-ff752e0fca6d">
+				<reportElement x="800" y="20" width="24" height="20" uuid="1893a621-045f-4959-89b6-ff752e0fca6d">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2347,7 +2274,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1064" y="20" width="24" height="20" uuid="7a4079d6-03a1-4f1f-9654-75b9034c7bba">
+				<reportElement x="944" y="20" width="24" height="20" uuid="7a4079d6-03a1-4f1f-9654-75b9034c7bba">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2362,7 +2289,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="992" y="0" width="96" height="20" uuid="61a48d75-b674-4abb-acc2-3b43d62b6828">
+				<reportElement x="872" y="0" width="96" height="20" uuid="61a48d75-b674-4abb-acc2-3b43d62b6828">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2377,7 +2304,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Compétence - Traitement des données]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="992" y="20" width="24" height="20" uuid="ccbf25f8-69b4-4e62-bea3-880393843551">
+				<reportElement x="872" y="20" width="24" height="20" uuid="ccbf25f8-69b4-4e62-bea3-880393843551">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2392,7 +2319,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1040" y="20" width="24" height="20" uuid="d9c78a6b-95b4-4165-a3e4-3a0ca622ac36">
+				<reportElement x="920" y="20" width="24" height="20" uuid="d9c78a6b-95b4-4165-a3e4-3a0ca622ac36">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2407,7 +2334,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1016" y="20" width="24" height="20" uuid="a570ff27-a78f-4349-83ae-76c3c566793b">
+				<reportElement x="896" y="20" width="24" height="20" uuid="a570ff27-a78f-4349-83ae-76c3c566793b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2422,7 +2349,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1160" y="20" width="24" height="20" uuid="a6e9acc5-710d-4f02-84f2-bcb6de1a50d2">
+				<reportElement x="1040" y="20" width="24" height="20" uuid="a6e9acc5-710d-4f02-84f2-bcb6de1a50d2">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2437,7 +2364,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1136" y="20" width="24" height="20" uuid="9253adf5-5c3d-49b5-9c7b-ff1c2563d515">
+				<reportElement x="1016" y="20" width="24" height="20" uuid="9253adf5-5c3d-49b5-9c7b-ff1c2563d515">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2452,7 +2379,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1088" y="20" width="24" height="20" uuid="a27fc3a3-4823-4e4a-9be0-161ab83ea205">
+				<reportElement x="968" y="20" width="24" height="20" uuid="a27fc3a3-4823-4e4a-9be0-161ab83ea205">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2467,7 +2394,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1112" y="20" width="24" height="20" uuid="fbd3121a-35b8-49a7-abd4-1b79e89a9cd8">
+				<reportElement x="992" y="20" width="24" height="20" uuid="fbd3121a-35b8-49a7-abd4-1b79e89a9cd8">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2482,7 +2409,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1088" y="0" width="96" height="20" uuid="2d2242c5-1a4b-4c41-aff6-8c86f9411f86">
+				<reportElement x="968" y="0" width="96" height="20" uuid="2d2242c5-1a4b-4c41-aff6-8c86f9411f86">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2497,7 +2424,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Compétence - Modélisation et sens du nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1256" y="20" width="24" height="20" uuid="2c4d565c-097f-4b9c-bca9-eb908e5e369f">
+				<reportElement x="1136" y="20" width="24" height="20" uuid="2c4d565c-097f-4b9c-bca9-eb908e5e369f">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2512,7 +2439,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1232" y="20" width="24" height="20" uuid="14b3e2b9-c05b-43fc-a941-0e5480a3dfdc">
+				<reportElement x="1112" y="20" width="24" height="20" uuid="14b3e2b9-c05b-43fc-a941-0e5480a3dfdc">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2527,7 +2454,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1184" y="20" width="24" height="20" uuid="3b806fbe-ffa3-4ef3-9b33-f1578b3b3680">
+				<reportElement x="1064" y="20" width="24" height="20" uuid="3b806fbe-ffa3-4ef3-9b33-f1578b3b3680">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2542,7 +2469,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1208" y="20" width="24" height="20" uuid="87404dbd-81f2-494f-bf84-435119edfa8a">
+				<reportElement x="1088" y="20" width="24" height="20" uuid="87404dbd-81f2-494f-bf84-435119edfa8a">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2557,7 +2484,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1184" y="0" width="96" height="20" uuid="d6939673-372c-4c22-b203-2dff7e1f1d2b">
+				<reportElement x="1064" y="0" width="96" height="20" uuid="d6939673-372c-4c22-b203-2dff7e1f1d2b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -2571,12 +2498,37 @@ WHERE ROWNUM = 1]]>
 				</textElement>
 				<text><![CDATA[Compétence - Géométrie et sens de l'espace]]></text>
 			</staticText>
+			<textField hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+				<reportElement x="0" y="0" width="435" height="40" uuid="55dddef3-ef72-47f4-b14d-ff2c7ab498af">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cliquez ici pour consulter le rapport avec plus d’historique. "]]></textFieldExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_num_notes_comp_tab"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="SCHOOL_YEAR">
+					<hyperlinkParameterExpression><![CDATA[$P{SCHOOL_YEAR}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="SCHOOL_CODE">
+					<hyperlinkParameterExpression><![CDATA[$P{SCHOOL_CODE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="GRADE">
+					<hyperlinkParameterExpression><![CDATA[$P{GRADE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="CLASS_CODE">
+					<hyperlinkParameterExpression><![CDATA[$P{CLASS_CODE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
 		</band>
 	</pageHeader>
 	<summary>
-		<band height="40" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="0" width="1290" height="40" uuid="3ef49faf-def9-4363-914f-917201453ada">
+				<reportElement x="0" y="0" width="1180" height="60" uuid="3ef49faf-def9-4363-914f-917201453ada">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
@@ -2605,7 +2557,7 @@ WHERE ROWNUM = 1]]>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="90" height="40" uuid="09876ead-edd8-4275-a711-299190ac0104"/>
+								<reportElement x="0" y="0" width="90" height="40" uuid="33a2cb57-45bf-47d1-9b46-7f129296e02b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2702,15 +2654,14 @@ WHERE ROWNUM = 1]]>
 					</jr:column>
 					<jr:column width="35" uuid="27b4eff4-c1b0-4d50-81bd-77ef9edfc103">
 						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="35" height="20" uuid="55b2c3a5-b5c7-42b3-ae2f-9fad9a07c62b">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-								</reportElement>
+								<reportElement x="0" y="0" width="35" height="20" uuid="8ed03cf0-8857-48d6-919a-48a607c22971"/>
 								<box>
 									<leftPen lineWidth="0.5"/>
 								</box>
@@ -2720,8 +2671,8 @@ WHERE ROWNUM = 1]]>
 								<text><![CDATA[Filles:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="20" width="35" height="20" uuid="ed800605-79ae-4fc1-9418-4a685db632f8">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<reportElement x="0" y="20" width="35" height="20" uuid="09afb5fb-14cb-494a-87bc-23ebc7f1971e">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								</reportElement>
 								<box>
 									<leftPen lineWidth="0.5"/>
@@ -2734,6 +2685,7 @@ WHERE ROWNUM = 1]]>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<staticText>
 								<reportElement x="0" y="0" width="35" height="20" uuid="d8663c0c-cd7b-45fd-aed2-bd3dd34b1da3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2755,15 +2707,17 @@ WHERE ROWNUM = 1]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="20" uuid="5fcc3224-525b-418f-af57-60d9abc5120f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<jr:tableFooter height="40">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="20" height="20" uuid="4a34d4a4-2070-4981-8bc3-e27361779b60">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-								</reportElement>
+								<reportElement x="0" y="0" width="20" height="20" uuid="84ae2857-5d3a-4502-9434-a92e40b8bbbe"/>
 								<box>
 									<topPen lineWidth="0.0"/>
 									<leftPen lineWidth="0.0"/>
@@ -2776,10 +2730,7 @@ WHERE ROWNUM = 1]]>
 								<textFieldExpression><![CDATA[" " + $V{Count F}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="20" width="20" height="20" uuid="bc736652-3294-484f-a7d7-3ab418253e8a">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-								</reportElement>
+								<reportElement x="0" y="20" width="20" height="20" uuid="9c7f917a-b2be-4d8b-88e4-59f10a0af1b1"/>
 								<box>
 									<topPen lineWidth="0.0"/>
 									<leftPen lineWidth="0.0"/>
@@ -2817,7 +2768,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="20" uuid="09bad66b-9fd9-4d88-9bf3-7e2cff76b31a">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -2845,7 +2799,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="20" uuid="3c1c9ec3-cd11-497e-b355-b6404f58c816">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -2881,7 +2838,9 @@ WHERE ROWNUM = 1]]>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField isStretchWithOverflow="true">
-								<reportElement x="0" y="0" width="20" height="40" uuid="3de47c6d-bcc8-4b25-afff-ed702a441a6f"/>
+								<reportElement x="0" y="0" width="20" height="40" uuid="35787097-631e-4b58-9391-9fba32d17380">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2918,7 +2877,6 @@ WHERE ROWNUM = 1]]>
 					</jr:column>
 					<jr:column width="60" uuid="bc168eb4-26f5-4151-b97a-a465d947f675">
 						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
 								<topPen lineWidth="0.5"/>
 								<leftPen lineWidth="0.5"/>
@@ -2926,10 +2884,11 @@ WHERE ROWNUM = 1]]>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="60" height="40" uuid="b1fd2474-8ccb-4118-93a4-5b185a0cf197">
+								<reportElement x="0" y="0" width="60" height="40" uuid="f59243fa-372c-4ec4-a4f8-3a11ef433dd6">
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -2961,9 +2920,9 @@ WHERE ROWNUM = 1]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="25" uuid="c449d613-2273-4584-b46f-00915bf9e2f4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
 								<topPen lineWidth="0.5"/>
 								<leftPen lineWidth="0.5"/>
@@ -2971,9 +2930,7 @@ WHERE ROWNUM = 1]]>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="25" height="40" uuid="b723b2ac-aee1-4da5-a2a3-c6c96277988d">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-								</reportElement>
+								<reportElement x="0" y="0" width="25" height="40" uuid="838dc56a-f9c3-44a6-b69a-3a125a656207"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2995,9 +2952,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
-								<reportElement key="" style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="8c3f6348-c506-4f92-9cca-0a1255f24502">
-									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-								</reportElement>
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="8c3f6348-c506-4f92-9cca-0a1255f24502"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -3012,14 +2967,15 @@ WHERE ROWNUM = 1]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="40" uuid="8f122757-4f36-40fa-9e58-c49f59669c0b">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="40" height="40" uuid="1e4261aa-e714-41a1-8a21-cd76478ae0d8"/>
+								<reportElement x="0" y="0" width="40" height="40" uuid="90650e2d-07b7-4948-9771-d896acbd9871"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="SansSerif" size="8"/>
 								</textElement>
@@ -3057,13 +3013,14 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="40" uuid="664fc76e-914b-4fa0-a155-424c82a3ecb0">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
 								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="40" height="13" uuid="120947fe-7177-4f24-a108-08c65e789c23">
+								<reportElement x="0" y="0" width="40" height="13" uuid="6b274ac1-2bd2-48ef-b9a2-7db3c793ad90">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -3071,11 +3028,9 @@ WHERE ROWNUM = 1]]>
 								<text><![CDATA[PN:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="13" width="40" height="13" uuid="e90e6af4-8404-4895-9bff-c0e5c923696c">
+								<reportElement x="0" y="13" width="40" height="13" uuid="fa7a8f5d-846f-49c2-a96c-32d411c1e404">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -3083,9 +3038,9 @@ WHERE ROWNUM = 1]]>
 								<text><![CDATA[M:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="26" width="40" height="13" uuid="7ffd8f0a-5e69-4c79-b09c-e422bd2a0cae">
+								<reportElement x="0" y="26" width="40" height="13" uuid="232886b4-b6ab-431b-b2e1-4b4877000841">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -3125,22 +3080,22 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="20" uuid="55fd73ba-e92f-479a-869a-f535a37f655a">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="20" height="13" uuid="431fff00-f9a3-4f19-aad7-7ef908855dad">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-								</reportElement>
+								<reportElement x="0" y="0" width="20" height="13" uuid="6c9dae22-54b6-4b8e-b7d8-420eb01c6b17"/>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[" " + $V{Count PN}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="13" width="20" height="13" uuid="a46435f9-dd36-4eb5-8bf6-2d3ca9af7cb5">
+								<reportElement x="0" y="13" width="20" height="13" uuid="833f35ae-deb4-46d9-889b-7b79b97770ec">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -3148,10 +3103,10 @@ WHERE ROWNUM = 1]]>
 								<textFieldExpression><![CDATA[" " + $V{Count Metis}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="26" width="20" height="13" uuid="d138d8f3-8d6c-4630-89c5-dd7249ce54a7">
+								<reportElement x="0" y="26" width="20" height="13" uuid="dec7eb7f-0e21-4c85-98ad-d0a4f279e976">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -3181,66 +3136,13 @@ WHERE ROWNUM = 1]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="12" uuid="d2527732-6fbe-413a-b870-bf912374e973">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="9369e187-7d89-4bb6-a29f-ea88547e2dd8"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="NUM_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="5100af8e-8e3d-42c2-a471-a415a1485738"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{NUM_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="12" uuid="e4614dc9-a999-4449-bf99-59a7aba639f5">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="9ecfb1b8-d85d-45f6-9962-8d1f5b5c33d1"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="NUM_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="123255d5-9cd4-4a58-b1f5-a342f6934aa7"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{NUM_F_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
 					<jr:column width="12" uuid="d84d28ca-7b74-4634-b5cf-72668c3e7fe4">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3268,7 +3170,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="487878b6-9ebb-4bf0-8961-7539c8cae121">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3296,7 +3201,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="c8b74bfd-5e6c-4b6d-ac3e-7160338887b9">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3324,7 +3232,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="17d1de5d-2f28-46c4-ba38-256363de4d87">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3349,66 +3260,13 @@ WHERE ROWNUM = 1]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="12" uuid="0751ac60-1f9c-4528-a0e4-f0fb319a0269">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="4c91035e-279a-48dc-86a3-809bf4e3602c"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="MES_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="876963bd-b16f-496a-b4bc-5524c3fcee6f"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{MES_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="12" uuid="92731c42-0d82-4635-9956-05495eac09b5">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="9d59b09c-bce3-4b1e-a180-45d44b102639"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="MES_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="f276e8e4-34fe-4ae0-bb9a-46b983f953d4"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{MES_F_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
 					<jr:column width="12" uuid="96625573-5c41-49e3-9bcb-8feb7aebd5e9">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3436,7 +3294,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="09173ec5-10e0-458f-9cdb-db48ef9e2dd5">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3464,7 +3325,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="671d1295-6f62-4155-b39f-e9170a50615d">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3492,7 +3356,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="188d3453-24d9-4016-9366-06151a5f9f12">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3517,66 +3384,13 @@ WHERE ROWNUM = 1]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="12" uuid="7843c7d9-88ed-4a33-9481-93afba0c1aaa">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="12beb805-e1f0-4bb0-8a65-d02c01d154e7"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="TRA_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="063c9031-bbe2-43d4-9356-c48d07985416"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{TRA_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="12" uuid="b5c21568-af1a-422b-87f6-121ce77168e1">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="045c62ed-5cdb-4d8b-b98d-8ed2f4454c64"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="TRA_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="cf0b8e63-fe34-43a4-990e-b7426c2e1051"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{TRA_F_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
 					<jr:column width="12" uuid="0ce8b78c-fa15-4381-8491-5d586b8a2e67">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3604,7 +3418,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="0646353f-a3d7-4fcd-80cb-f5181bc44dd1">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3632,7 +3449,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="c707e34a-8759-4d2b-bac1-66120f1fd0a5">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3660,7 +3480,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="28a54fd3-8e94-406e-8ca4-a71f531be270">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3685,66 +3508,13 @@ WHERE ROWNUM = 1]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="12" uuid="1c98285e-de2e-4258-8832-aae6452aa39a">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="5404b959-5353-4193-97df-83d1abdda23b"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="MOD_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="85aa4dff-7488-4cb7-9881-4d859f863869"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{MOD_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="12" uuid="bed597d9-9bb8-4d10-95c5-09eb725861d3">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="acda5710-1e42-4277-a1ce-9652975282fe"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="MOD_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="775e4de7-52fd-4bf0-9fc6-c5b4afbe4f6b"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{MOD_F_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
 					<jr:column width="12" uuid="b9da26d9-192b-4cfa-b158-9a0817b6e878">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3761,7 +3531,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="MOD_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="caf081ea-6701-4eab-96a0-d28a2f399502"/>
+								<reportElement style="MOD_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="caf081ea-6701-4eab-96a0-d28a2f399502"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -3772,7 +3542,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="f1cf3e09-35af-4064-918f-e26302a2163d">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3800,7 +3573,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="2a6643bf-a507-494d-9177-63714fe6c53b">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3828,7 +3604,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="04cf47aa-9d94-41cd-9950-3b26bec36c9f">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3853,66 +3632,13 @@ WHERE ROWNUM = 1]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="12" uuid="70846cc0-d628-478e-b28c-ba8545d7c8cd">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="8aaabfac-f14a-497a-a031-e652bc540f9c"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="GEO_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="b397be7b-691d-4a09-92f2-351f6741f18c"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{GEO_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="12" uuid="83ba73fb-d951-4b09-a08f-ddc69cf87746">
-						<jr:tableFooter height="40">
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table 2_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="12" height="20" uuid="901271bc-2326-43ae-8972-187cc8da2c2d"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table 2_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="GEO_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="1f04945b-12f8-4fcc-b0de-877471491941"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Tahoma" size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{GEO_F_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
 					<jr:column width="12" uuid="e8256e74-b91e-4b04-95e0-bd179be12954">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3940,7 +3666,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="9995cdf0-f807-4374-a46a-4425141430f3">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3970,7 +3699,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="43be5f3d-a923-4269-880f-d3d25fee5eac">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -3998,7 +3730,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="2d4e6579-26ab-474c-ae81-a64855e26ba0">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4026,7 +3761,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="5423a193-a814-4b6b-84fc-0e9bb4bbc910">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4054,7 +3792,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="604313c9-54ed-422f-abdd-e210312c0f34">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4082,7 +3823,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="94aff5b3-8d05-4680-ad2e-def2fe751e7c">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4110,7 +3854,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="8b0f25c4-9501-4a24-9546-45b11542385d">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4138,7 +3885,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="387ab248-eda1-4098-b1db-45646a2baf84">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4166,7 +3916,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="c12e0b89-e88d-48a8-8c3c-66448cf5a6a6">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4195,7 +3948,10 @@ WHERE ROWNUM = 1]]>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4223,7 +3979,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="ec6f432f-ed2b-4417-9314-37a9636432e4">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4251,7 +4010,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="55b2150e-0b4e-4af1-9663-3ec7e82d7789">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4279,7 +4041,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="fc944be6-df43-4f35-a932-c9dcb3ad76fe">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4307,7 +4072,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="11a97fe0-cc34-4fc9-a795-cc0f9cdcbc90">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4335,7 +4103,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="38cc0b0a-4113-4883-9f41-c4a2004aac0b">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4363,7 +4134,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="230dcd35-9c65-4666-92ec-cfd558171a77">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4391,7 +4165,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="5a954bb5-a09c-4de9-80b9-337cad34b3dd">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4419,7 +4196,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="d811e690-40b7-477c-8752-d6b54e4938c2">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4447,7 +4227,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="8d0659c8-660c-49ab-8468-a71185764876">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4475,7 +4258,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="0d9d5fd4-a540-420b-a373-841e779a5a18">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4503,7 +4289,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="01c25738-1a5b-4085-b417-1684f3d8a689">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4520,7 +4309,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="COMP_TRA_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="c22bc82c-3bac-42ae-8929-3a86953feb7a"/>
+								<reportElement style="COMP_TRA_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="c22bc82c-3bac-42ae-8929-3a86953feb7a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -4531,7 +4320,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="f07e0de9-f144-4908-a4d1-60ce8a6cac1c">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4559,7 +4351,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="d856669f-8f17-41a3-838d-ad8cac07c163">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4587,7 +4382,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="ed15384b-557d-4f88-826f-b9e206d07e6e">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4615,7 +4413,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="1b56814a-041c-4cf4-81e6-82dd8cb69113">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4643,7 +4444,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="39d90d2d-1860-4227-9483-83f17aea5b6f">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4671,7 +4475,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="18101085-ae73-4f74-aa5e-c408f5aab689">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4688,7 +4495,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement style="COMP_MOD_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="22d2a6c2-7b62-4f52-aaf3-41a31536ae13"/>
+								<reportElement style="COMP_TRA_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="22d2a6c2-7b62-4f52-aaf3-41a31536ae13"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -4699,7 +4506,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="09a3520e-9816-4cb1-8025-57202f53b462">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4727,7 +4537,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="84ac9866-9388-41f1-a989-873dcbe4b499">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4755,7 +4568,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="8071a202-9d71-4ac7-880d-aaf1bf9376f4">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4783,7 +4599,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="b0b03e4f-dda3-45f2-bc27-77598a0c8a20">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4811,7 +4630,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="ce24d751-d0ee-4bef-a9a8-0f0ab0958f18">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4839,7 +4661,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="f447f78b-1ff2-4a31-b58e-c77af599b013">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4867,7 +4692,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="fcc8b084-d53c-4291-b6da-3baa7c668d96">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4884,7 +4712,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="COMP_MOD_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="3d57711f-47ce-48cd-829d-51f7d8530fd5"/>
+								<reportElement style="COMP_MOD_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="3d57711f-47ce-48cd-829d-51f7d8530fd5"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -4895,7 +4723,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="ebc1de45-c4a7-479c-a507-9f275279a6e1">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4923,7 +4754,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="1d3a9eb2-3b76-41c2-9e1e-f2bcbca58e57">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4951,7 +4785,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="a9040d1b-2ad1-46ed-9ed0-451c09253a4e">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -4979,7 +4816,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="12d629ef-411a-4e2c-bce5-3977f1eb6a56">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -5007,7 +4847,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="5514f38d-4245-4893-a8ac-834d9ebd88d2">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -5024,7 +4867,7 @@ WHERE ROWNUM = 1]]>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement key="" style="COMP_GEO_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="72640eca-9b44-4537-9faf-0b7a8e845ce2"/>
+								<reportElement style="COMP_GEO_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="12" height="20" uuid="72640eca-9b44-4537-9faf-0b7a8e845ce2"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -5035,7 +4878,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="8fd68799-5c42-4dfc-8c3c-eaddbda5f69d">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -5063,7 +4909,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="2d1c6fb5-d1c5-43ad-93f5-5c3edf52208a">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -5093,7 +4942,10 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="6c44a244-d4fe-46c7-82ad-ef9efb29b10a">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.0"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table 2_CH" height="20">
@@ -5121,6 +4973,8 @@ WHERE ROWNUM = 1]]>
 					<jr:column width="12" uuid="936592a2-e070-42c3-9b55-edcafa8bf1e7">
 						<jr:tableFooter height="40">
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>

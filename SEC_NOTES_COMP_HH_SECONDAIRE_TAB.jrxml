@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
-<!-- 2015-10-30T13:54:20 -->
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-10-30T16:14:03 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SEC_NOTES_COMP_HH_SECONDAIRE_TAB" pageWidth="1224" pageHeight="792" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="1af2c9aa-a58d-46f8-bbfb-cf2a1b406d06">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN Tril"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -592,7 +592,7 @@ P.GENDER,
 SR.SCHOOL_CODE,
 S.SCHOOL_NAME,
 SCA.COURSE_CODE,
-SR.GRADE,
+to_number(SR.GRADE) as grade,
 PKG_RAPPORT_DE_RENDEMENT_SEC.GET_CLASS_CODE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, SR.GRADE, SCA.COURSE_CODE) AS CLASS_CODE,
 PKG_RAPPORT_DE_RENDEMENT_SEC.GET_ABS_COURS_SEC(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, $P{P_SEMESTER}, SCA.COURSE_CODE, SCA.COURSE_SECTION) AS YTD_ABS,
 PKG_RAPPORT_DE_RENDEMENT_SEC.GET_RET_COURS_SEC(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, $P{P_SEMESTER}, SCA.COURSE_CODE, SCA.COURSE_SECTION) AS YTD_LATES,

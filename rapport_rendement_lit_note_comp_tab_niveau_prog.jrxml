@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2015-11-10T15:47:42 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rapport_rendement_num_note_comp_tab" pageWidth="1346" pageHeight="792" orientation="Landscape" columnWidth="1306" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="b533fc9a-fc23-4559-82d0-1c3ee4ecc7a7">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CSCFN Tril"/>
+<!-- 2015-11-10T15:41:23 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rapport_rendement_num_note_comp_tab" pageWidth="1224" pageHeight="792" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="b533fc9a-fc23-4559-82d0-1c3ee4ecc7a7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="ireport.jasperserver.url" value="https://rapports.franco-nord.ca/trilliumReports/"/>
 	<property name="ireport.jasperserver.user" value="superuser|CSCFN"/>
-	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_lit_notes_comp_tab_files/main_jrxml"/>
-	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_lit_notes_comp_tab"/>
+	<property name="ireport.jasperserver.report.resource" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/Rapport_ele_lit_notes_comp_tab_niveau_prog_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/organizations/organization_1/CSCFN/Rapports_de_rendement/Rapport_elementaire_etape_I_et_F/Rapport_ele_lit_notes_comp_tab_niveau_prog"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Table_TH" mode="Opaque" backcolor="#73B0E6">
 		<box>
@@ -58,10 +58,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="Retards" mode="Opaque" scaleImage="FillFrame">
 		<box>
@@ -85,10 +81,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COM_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
@@ -114,10 +106,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COM_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
 		<box>
@@ -142,10 +130,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COM_I_2" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -163,10 +147,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COM_F_2" mode="Opaque" scaleImage="FillFrame">
@@ -186,10 +166,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COM_I_3" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -207,10 +183,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COM_F_3" mode="Opaque" scaleImage="FillFrame">
@@ -230,10 +202,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_CC_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -251,10 +219,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_CC_F" mode="Opaque" scaleImage="FillFrame">
@@ -274,10 +238,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_HP_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -295,10 +255,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_HP_F" mode="Opaque" scaleImage="FillFrame">
@@ -318,10 +274,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_COM_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -339,10 +291,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_COM_F" mode="Opaque" scaleImage="FillFrame">
@@ -362,10 +310,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_MA_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -384,10 +328,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_COM_MA_F" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -405,10 +345,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="ECR_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
@@ -434,10 +370,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="ECR_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
 		<box>
@@ -462,10 +394,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="ECR_I_2" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -483,10 +411,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="ECR_F_2" mode="Opaque" scaleImage="FillFrame">
@@ -506,10 +430,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="ECR_I_3" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -527,10 +447,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="ECR_F_3" mode="Opaque" scaleImage="FillFrame">
@@ -550,10 +466,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_CC_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -571,10 +483,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_CC_F" mode="Opaque" scaleImage="FillFrame">
@@ -594,10 +502,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_HP_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -615,10 +519,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_HP_F" mode="Opaque" scaleImage="FillFrame">
@@ -638,10 +538,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_COM_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -659,10 +555,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_COM_F" mode="Opaque" scaleImage="FillFrame">
@@ -682,10 +574,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_MA_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -704,14 +592,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_ECR_MA_F" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -729,10 +609,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="LEC_I_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
@@ -758,10 +634,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="LEC_F_1" mode="Opaque" backcolor="#CAD7FB" scaleImage="FillFrame">
 		<box>
@@ -786,10 +658,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="LEC_I_2" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -807,10 +675,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="LEC_F_2" mode="Opaque" scaleImage="FillFrame" pattern="">
@@ -830,10 +694,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="LEC_I_3" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -851,10 +711,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="LEC_F_3" mode="Opaque" scaleImage="FillFrame">
@@ -874,10 +730,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_CC_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -895,10 +747,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_CC_F" mode="Opaque" scaleImage="FillFrame">
@@ -918,10 +766,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_HP_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -939,10 +783,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_HP_F" mode="Opaque" scaleImage="FillFrame">
@@ -962,10 +802,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_COM_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -983,10 +819,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_COM_F" mode="Opaque" scaleImage="FillFrame">
@@ -1006,10 +838,6 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_MA_I" mode="Opaque" scaleImage="FillFrame">
 		<conditionalStyle>
@@ -1027,10 +855,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="COMP_LEC_MA_F" mode="Opaque" scaleImage="FillFrame">
@@ -1050,19 +874,11 @@
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
 		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
-		</conditionalStyle>
 	</style>
 	<style name="Lignes Grises">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[(new Boolean( $V{REPORT_COUNT}.intValue() % 2 == 0 ))]]></conditionExpression>
 			<style mode="Opaque" backcolor="#C0C0C0"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[new Boolean($F{STATUS_INDICATOR_CODE}.equals("Inactive"))]]></conditionExpression>
-			<style forecolor="#CFCFCF"/>
 		</conditionalStyle>
 	</style>
 	<style name="Actif ou inactif">
@@ -1090,7 +906,7 @@ to_number(SR.GRADE) as grade,
 SR.PERSON_ID,
 P.LEGAL_NAME_UPPER,
 P.GENDER,
-SR.Status_indicator_code, 
+SR.STATUS_INDICATOR_CODE,
 PKG_RAPPORT_DE_RENDEMENT_ELE.GET_CLASS_CODE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR, SR.GRADE, '009') as class_code,
 REPLACE(PKG_RAPPORT_DE_RENDEMENT_ELE.GET_ABS_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR), ',', '.') AS YTD_ABS,
 PKG_RAPPORT_DE_RENDEMENT_ELE.GET_RET_ELE(SR.PERSON_ID, SR.SCHOOL_CODE, SR.SCHOOL_YEAR) AS YTD_LATES,
@@ -1163,17 +979,6 @@ on
 sap.school_code = sr.school_code
 and sap.school_year = sr.school_year
 and sap.person_id = sr.person_id
-left join 
-fs_student_fsl_programs fsfp
-on
-sap.person_id = fsfp.person_id
-and sap.date_en_vigueur = fsfp.start_date
-and sap.school_code = fsfp.school_code
-and sap.school_year = fsfp.school_year
-left join
-fs_fsl_programs ffp
-on 
-ffp.fsl_instruction_code = fsfp.other_fsl_instruction
 
 WHERE  SR.SCHOOL_YEAR = $P{SCHOOL_YEAR}
 AND $X{IN, SR.SCHOOL_CODE, SCHOOL_CODE}
@@ -1182,8 +987,13 @@ AND SR.GRADE IN ('01','02','03','04','05','06','07','08')
 AND SR.OSR_FLAG = 'x'
 AND SR.STATUS_INDICATOR_CODE IN ('Active', 'Inactive')
 
---and language = 'F'
---and active_flag_10 = 1
+and ((SAP.DATE_EN_VIGUEUR = 
+        (SELECT MAX (DATE_EN_VIGUEUR) FROM trill02.student_alf_pana SAP 
+            WHERE SAP.PERSON_ID = SR.PERSON_ID 
+            and sap.school_year = sr.school_year 
+            and sap.school_code = sr.school_code)) 
+     or SAP.DATE_EN_VIGUEUR is null)
+
 
 ORDER BY S.SCHOOL_NAME ASC, SR.GRADE ASC, P.LEGAL_NAME_UPPER ASC)
 where $X{IN, class_code, CLASS_CODE}]]>
@@ -1300,13 +1110,13 @@ WHERE ROWNUM = 1]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="48">
+		<band height="47">
 			<textField>
 				<reportElement x="90" y="0" width="1093" height="32" uuid="67a40bf0-9db7-48d5-9479-7e3ccaace9fc">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="20"/>
+					<font size="20"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Rapport Élémentaire - Littératie - Notes et Compétences - " + $P{SCHOOL_YEAR}.substring( 0, 4 ) + "/" + $P{SCHOOL_YEAR}.substring( 4, 8 )]]></textFieldExpression>
 			</textField>
@@ -1314,20 +1124,12 @@ WHERE ROWNUM = 1]]>
 				<reportElement x="0" y="-14" width="90" height="61" uuid="073e04c9-d300-4db2-b18f-a99c41181331"/>
 				<imageExpression><![CDATA["\\\\TINTINV1\\photosdeseleves\\CSCFN_LOGO.png"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="1183" y="0" width="123" height="32" forecolor="#E62C29" uuid="63e17b52-7900-4689-9c19-98a574b2903a"/>
-				<box padding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="8"/>
-				</textElement>
-				<text><![CDATA[Ce rapport dépasse les dimensions d'impression]]></text>
-			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="60">
 			<staticText>
-				<reportElement x="475" y="0" width="114" height="30" uuid="e1685c01-11a0-4fe3-ab97-836360eab455">
+				<reportElement x="470" y="0" width="76" height="30" uuid="e1685c01-11a0-4fe3-ab97-836360eab455">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1342,18 +1144,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Communication Orale]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="475" y="30" width="38" height="30" uuid="81cf9200-bc0c-49b2-b6ea-bb92952eece9"/>
-				<box>
-					<leftPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="513" y="30" width="38" height="30" uuid="87b9cc85-ad73-4651-8731-f81966b75b55">
+				<reportElement x="470" y="30" width="38" height="30" uuid="87b9cc85-ad73-4651-8731-f81966b75b55">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1366,7 +1157,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="551" y="30" width="38" height="30" uuid="653828bb-80e8-4c43-8b59-9f825662f0b1"/>
+				<reportElement x="508" y="30" width="38" height="30" uuid="653828bb-80e8-4c43-8b59-9f825662f0b1"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1377,18 +1168,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="589" y="30" width="38" height="30" uuid="57e098de-9f2c-47c1-8c89-84a90bc7fdb5"/>
-				<box>
-					<leftPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="627" y="30" width="38" height="30" uuid="6e878ced-a958-4a04-a829-c48fe38ccfa2"/>
+				<reportElement x="546" y="30" width="38" height="30" uuid="6e878ced-a958-4a04-a829-c48fe38ccfa2"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1399,7 +1179,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="589" y="0" width="114" height="30" uuid="a173aedc-3b8a-4e1b-b6f5-5b3f6834c345">
+				<reportElement x="546" y="0" width="76" height="30" uuid="a173aedc-3b8a-4e1b-b6f5-5b3f6834c345">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1414,7 +1194,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Écriture]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="665" y="30" width="38" height="30" uuid="d6b8a765-968a-4230-a313-25148d06c76f">
+				<reportElement x="584" y="30" width="38" height="30" uuid="d6b8a765-968a-4230-a313-25148d06c76f">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1427,18 +1207,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="703" y="30" width="38" height="30" uuid="48bede64-a83e-4cb9-8c20-1e089244cd8a"/>
-				<box>
-					<leftPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Année d'avant]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="741" y="30" width="38" height="30" uuid="a29fc296-5a94-40da-909a-e433441fae19"/>
+				<reportElement x="622" y="30" width="38" height="30" uuid="a29fc296-5a94-40da-909a-e433441fae19"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1449,7 +1218,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année passée]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="703" y="0" width="114" height="30" uuid="7fc5712e-dd21-43e1-8571-8b64d1378f65">
+				<reportElement x="622" y="0" width="76" height="30" uuid="7fc5712e-dd21-43e1-8571-8b64d1378f65">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1464,7 +1233,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Lecture]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="779" y="30" width="38" height="30" uuid="f608d7b5-0d3c-4ab8-9761-789f7ff301b2"/>
+				<reportElement x="660" y="30" width="38" height="30" uuid="f608d7b5-0d3c-4ab8-9761-789f7ff301b2"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1475,7 +1244,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[Année présente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="817" y="30" width="38" height="30" uuid="2036198d-e672-49ac-85bf-daf70a1e1a7b">
+				<reportElement x="698" y="30" width="38" height="30" uuid="2036198d-e672-49ac-85bf-daf70a1e1a7b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1488,7 +1257,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="855" y="30" width="38" height="30" uuid="11398fde-181a-4c1c-816c-84c528d59164">
+				<reportElement x="736" y="30" width="38" height="30" uuid="11398fde-181a-4c1c-816c-84c528d59164">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1501,7 +1270,7 @@ WHERE ROWNUM = 1]]>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="817" y="0" width="152" height="30" uuid="c89187be-6b4c-47cb-8e96-e169ccf277cc"/>
+				<reportElement x="698" y="0" width="152" height="30" uuid="c89187be-6b4c-47cb-8e96-e169ccf277cc"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -1515,7 +1284,7 @@ WHERE ROWNUM = 1]]>
 Communication Orale]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="893" y="30" width="38" height="30" uuid="5aff38cd-e3b8-4540-9240-181f6271457e">
+				<reportElement x="774" y="30" width="38" height="30" uuid="5aff38cd-e3b8-4540-9240-181f6271457e">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1528,7 +1297,7 @@ Communication Orale]]></text>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="931" y="30" width="38" height="30" uuid="300503d0-56e1-4941-af91-6cb29f058159">
+				<reportElement x="812" y="30" width="38" height="30" uuid="300503d0-56e1-4941-af91-6cb29f058159">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1541,7 +1310,7 @@ Communication Orale]]></text>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="969" y="30" width="38" height="30" uuid="fe83e45a-27d4-40da-ba13-0ad29e229319">
+				<reportElement x="850" y="30" width="38" height="30" uuid="fe83e45a-27d4-40da-ba13-0ad29e229319">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1554,7 +1323,7 @@ Communication Orale]]></text>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="969" y="0" width="152" height="30" uuid="aa10aafe-edda-4c0d-8faf-db36da85e8d4">
+				<reportElement x="850" y="0" width="152" height="30" uuid="aa10aafe-edda-4c0d-8faf-db36da85e8d4">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1570,7 +1339,7 @@ Communication Orale]]></text>
 Écriture]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1007" y="30" width="38" height="30" uuid="e17502f8-ca4e-4163-965f-a9b9e8f8c554">
+				<reportElement x="888" y="30" width="38" height="30" uuid="e17502f8-ca4e-4163-965f-a9b9e8f8c554">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1583,7 +1352,7 @@ Communication Orale]]></text>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1159" y="30" width="38" height="30" uuid="cdbb27d3-644a-4cd9-81ab-ab55a135c382">
+				<reportElement x="1040" y="30" width="38" height="30" uuid="cdbb27d3-644a-4cd9-81ab-ab55a135c382">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1596,7 +1365,7 @@ Communication Orale]]></text>
 				<text><![CDATA[HP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1197" y="30" width="38" height="30" uuid="d6a362b5-e5f7-4634-9981-6e7416735735"/>
+				<reportElement x="1078" y="30" width="38" height="30" uuid="d6a362b5-e5f7-4634-9981-6e7416735735"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1607,7 +1376,7 @@ Communication Orale]]></text>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1121" y="0" width="152" height="30" uuid="77aceddd-00e2-4117-8a14-647f3b8d8fe4">
+				<reportElement x="1002" y="0" width="152" height="30" uuid="77aceddd-00e2-4117-8a14-647f3b8d8fe4">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1623,7 +1392,7 @@ Communication Orale]]></text>
 Lecture]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1235" y="30" width="38" height="30" uuid="c0ee8772-dffc-4c8e-90e2-df1c2e797c92"/>
+				<reportElement x="1116" y="30" width="38" height="30" uuid="c0ee8772-dffc-4c8e-90e2-df1c2e797c92"/>
 				<box>
 					<leftPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
@@ -1634,7 +1403,7 @@ Lecture]]></text>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1045" y="30" width="38" height="30" uuid="63742a87-33b9-41f7-90ba-ebd9e8f379c7">
+				<reportElement x="926" y="30" width="38" height="30" uuid="63742a87-33b9-41f7-90ba-ebd9e8f379c7">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1647,7 +1416,7 @@ Lecture]]></text>
 				<text><![CDATA[COM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1121" y="30" width="38" height="30" uuid="08d3c32a-7abe-436c-ba1c-d35495d1dc72">
+				<reportElement x="1002" y="30" width="38" height="30" uuid="08d3c32a-7abe-436c-ba1c-d35495d1dc72">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1660,7 +1429,7 @@ Lecture]]></text>
 				<text><![CDATA[CC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1083" y="30" width="38" height="30" uuid="158a9689-b024-4e1b-a2eb-e0f4e3e73b78">
+				<reportElement x="964" y="30" width="38" height="30" uuid="158a9689-b024-4e1b-a2eb-e0f4e3e73b78">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
@@ -1673,21 +1442,19 @@ Lecture]]></text>
 				<text><![CDATA[MA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1273" y="30" width="38" height="30" uuid="cd141380-6a3a-4499-b497-cb4b2cc8a128"/>
-				<box>
-					<topPen lineWidth="0.5"/>
+				<reportElement x="1154" y="30" width="38" height="30" uuid="f6d90a37-bc21-4bb2-8e6e-21fd55213774"/>
+				<box padding="3">
 					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="6"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Com. Oral]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1273" y="0" width="38" height="30" uuid="7625d018-20ac-4cfc-9e95-6e170cb44839"/>
-				<box>
+				<reportElement x="1154" y="0" width="38" height="30" uuid="f7a9704a-63cf-4a7c-9d87-0ca4c6695ed3"/>
+				<box padding="3">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
 					<bottomPen lineWidth="0.5"/>
@@ -1698,13 +1465,36 @@ Lecture]]></text>
 				</textElement>
 				<text><![CDATA[HH]]></text>
 			</staticText>
+			<textField hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
+				<reportElement x="0" y="0" width="451" height="60" uuid="5010ae11-f78e-4682-b573-7c6ec80ea455"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cliquez ici pour consulter le rapport avec plus d’historique. "]]></textFieldExpression>
+				<hyperlinkParameter name="_report">
+					<hyperlinkParameterExpression><![CDATA["repo:/Ressources_CSCFN/Drilldowns/Rapports_de_Rendement/Rapport_ele_lit_notes_comp_tab"]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="SCHOOL_YEAR">
+					<hyperlinkParameterExpression><![CDATA[$P{SCHOOL_YEAR}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="SCHOOL_CODE">
+					<hyperlinkParameterExpression><![CDATA[$P{SCHOOL_CODE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="GRADE">
+					<hyperlinkParameterExpression><![CDATA[$P{GRADE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+				<hyperlinkParameter name="CLASS_CODE">
+					<hyperlinkParameterExpression><![CDATA[$P{CLASS_CODE}]]></hyperlinkParameterExpression>
+				</hyperlinkParameter>
+			</textField>
 		</band>
 	</pageHeader>
 	<summary>
 		<band height="40">
 			<componentElement>
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1320" height="40" uuid="8cdb953c-4e54-4653-9735-0988f244b5fd">
+				<reportElement stretchType="RelativeToBandHeight" x="-5" y="0" width="1200" height="40" uuid="8cdb953c-4e54-4653-9735-0988f244b5fd">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Dataset1" uuid="8aba496f-da71-4677-a11f-60e2d6286431">
@@ -1730,7 +1520,7 @@ Lecture]]></text>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="90" height="40" uuid="0849fc6c-3765-4a88-9e6e-64598477ab13"/>
+								<reportElement x="0" y="0" width="90" height="40" uuid="99d0d299-2784-471a-a263-99548e03d64d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -1743,7 +1533,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="20" uuid="1808044d-507b-44f0-bb1b-345a000bdcdc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[Nom]]></text>
 							</staticText>
@@ -1754,7 +1544,7 @@ Lecture]]></text>
 								<reportElement style="Actif ou inactif" stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="20" uuid="85127e0b-3349-43c8-9202-1ec3c712db0a"/>
 								<box padding="3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{LEGAL_NAME_UPPER}]]></textFieldExpression>
 							</textField>
@@ -1765,6 +1555,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -1773,7 +1564,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="30" height="20" uuid="8f8c367d-0933-4956-90eb-a4b635d651f6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[École]]></text>
 							</staticText>
@@ -1783,7 +1574,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="53a8446f-42e6-4d50-a360-b81a0459f4ec"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{SCHOOL_CODE}]]></textFieldExpression>
 							</textField>
@@ -1793,6 +1584,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -1801,7 +1593,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="20" height="20" uuid="04ca3d27-ffb6-4fc1-a523-8e05b76bc182"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="6"/>
+									<font fontName="Tahoma" size="6"/>
 								</textElement>
 								<text><![CDATA[Niveau]]></text>
 							</staticText>
@@ -1811,7 +1603,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="20" height="20" uuid="059c4d13-fdd5-41a5-bbe7-fb3082bf97b0"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{GRADE}]]></textFieldExpression>
 							</textField>
@@ -1823,13 +1615,11 @@ Lecture]]></text>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<box>
-								<topPen lineWidth="0.5"/>
 								<leftPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
-								<rightPen lineWidth="0.0"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="35" height="20" uuid="a93aac98-a919-4c27-bb9e-5a15c6a0793d">
+								<reportElement x="0" y="0" width="35" height="20" uuid="4acc0a35-35ba-4417-a2e8-28074848ef6f">
 									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
 								<box>
@@ -1841,7 +1631,7 @@ Lecture]]></text>
 								<text><![CDATA[Filles:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="20" width="35" height="20" uuid="ce1cda64-5f5e-4e53-938d-b6698a4a8742">
+								<reportElement x="0" y="20" width="35" height="20" uuid="5ee19cbc-3b35-49a2-92f2-7a5e978a7f75">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
@@ -1859,7 +1649,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="35" height="20" uuid="74c22b5b-4d02-4df2-bfe6-523218d73615"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[Classe]]></text>
 							</staticText>
@@ -1870,7 +1660,7 @@ Lecture]]></text>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="35" height="20" uuid="85a88760-537d-4a60-ba1a-aa907215f157"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{CLASS_CODE}]]></textFieldExpression>
 							</textField>
@@ -1880,13 +1670,11 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
-								<topPen lineWidth="0.5"/>
-								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="20" height="20" uuid="1223310f-74e3-42d5-8d95-637cfceabd19">
+								<reportElement x="0" y="0" width="20" height="20" uuid="e4c8fba2-2d69-4f0e-b0f0-68a675fb8719">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
@@ -1902,7 +1690,7 @@ Lecture]]></text>
 								<textFieldExpression><![CDATA[" " + $V{Count F}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="20" width="20" height="20" uuid="6faf71f2-1e80-4a87-8900-82f9d7600e43">
+								<reportElement x="0" y="20" width="20" height="20" uuid="56f5e72c-bf58-45ad-b2bd-18a400958f1e">
 									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -1924,7 +1712,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="20" height="20" uuid="c530470f-a871-483e-9f02-bfe3eb71aa56"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[Sexe]]></text>
 							</staticText>
@@ -1934,7 +1722,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="20" height="20" uuid="e1b3e4c7-2801-4aa9-a4be-e271e340e7ff"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{GENDER}]]></textFieldExpression>
 							</textField>
@@ -1945,6 +1733,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -1953,7 +1742,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="30" height="20" uuid="102bceb0-2380-4383-9c8b-347bfbb7fefc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="6"/>
+									<font fontName="Tahoma" size="6"/>
 								</textElement>
 								<text><![CDATA[Absences]]></text>
 							</staticText>
@@ -1963,7 +1752,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="Absences" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="a2e1cb0a-195e-402b-84c7-c7f780984f95"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{YTD_ABS}]]></textFieldExpression>
 							</textField>
@@ -1973,6 +1762,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -1981,7 +1771,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="30" height="20" uuid="5cab239e-1235-4148-9272-c91828d33f9b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[Retards]]></text>
 							</staticText>
@@ -1991,7 +1781,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="Retards" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="20" uuid="2233f581-6d7a-42a9-989b-8e45d58e81e5"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{YTD_LATES}]]></textFieldExpression>
 							</textField>
@@ -2008,7 +1798,7 @@ Lecture]]></text>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField isStretchWithOverflow="true">
-								<reportElement x="0" y="0" width="25" height="40" uuid="f140d0fc-c780-4cfe-94bc-8b0077b8fa19">
+								<reportElement x="0" y="0" width="25" height="40" uuid="f3171318-a67d-4772-88e6-92c22da1c8ae">
 									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2022,7 +1812,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="25" height="20" uuid="1a13d605-4588-4bed-b9c2-0495cec268b6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[PEI]]></text>
 							</staticText>
@@ -2032,7 +1822,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="f82ad94f-5e5d-4aa6-8493-d3c30e5d2bbc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{PEI}]]></textFieldExpression>
 								<hyperlinkParameter name="_report">
@@ -2056,7 +1846,7 @@ Lecture]]></text>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="65" height="40" uuid="b46f3d98-2705-4ea6-9716-14e923de37d9">
+								<reportElement x="0" y="0" width="65" height="40" uuid="ef763fdf-51e1-4306-af73-aa0c1b6d308c">
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -2074,7 +1864,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="65" height="20" uuid="14cabcc5-5787-4a5d-9d4a-1b9af1ea9692"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[ANOMALIE]]></text>
 							</staticText>
@@ -2085,14 +1875,13 @@ Lecture]]></text>
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="65" height="20" uuid="b36ad3ea-96d5-46aa-8451-2c314d4b0749"/>
 								<box padding="3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ANOMALIE}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="25" uuid="aecb3c04-56f9-4565-abab-a34a908d0b24">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
@@ -2102,7 +1891,7 @@ Lecture]]></text>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="25" height="40" uuid="c8eb2e72-bf21-4829-9ae7-7ef815e99140"/>
+								<reportElement x="0" y="0" width="25" height="40" uuid="27244669-5f00-4de0-8d2f-dcfae119a571"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2114,7 +1903,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="25" height="20" uuid="4305f4d6-4869-41c9-b0ab-23e375908abc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[ALS]]></text>
 							</staticText>
@@ -2124,7 +1913,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true" hyperlinkType="ReportExecution" hyperlinkTarget="Blank">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="c9eabbfc-4980-4a64-9feb-bb14b2b258dd"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ALS}]]></textFieldExpression>
 								<hyperlinkParameter name="_report">
@@ -2136,14 +1925,15 @@ Lecture]]></text>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="40" uuid="fc1a20b7-88b0-40ff-8c11-56bb82da5dbb">
+					<jr:column width="40" uuid="d022e7e3-252e-4ff8-bf3f-bf145c49b32d">
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="0" width="40" height="40" uuid="3a4167c3-8e8a-4d32-97ac-1286043b860d"/>
+								<reportElement x="0" y="0" width="40" height="40" uuid="f8edc385-ba86-4eca-a770-52abd9a8091b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="SansSerif" size="8"/>
 								</textElement>
@@ -2152,7 +1942,7 @@ Lecture]]></text>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="20">
 							<staticText>
-								<reportElement x="0" y="0" width="40" height="20" uuid="ddfedcb8-c8ee-48e6-9177-fc6a6241d61e"/>
+								<reportElement x="0" y="0" width="40" height="20" uuid="41e6edb9-41be-4b11-ac6a-a487915a77dd"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2161,7 +1951,7 @@ Lecture]]></text>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="20">
 							<textField>
-								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="9e2f6889-e857-4e09-a6f5-09f556b778ae"/>
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="6063e833-ea28-4a98-9508-5ae25b4ad992"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2169,15 +1959,17 @@ Lecture]]></text>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="40" uuid="19f1a2f6-0e80-41f0-a6ca-f7fefd024a3f">
+					<jr:column width="40" uuid="20e81ca8-061d-4847-87e1-3e6c7e8828e8">
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
-								<leftPen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="40" height="13" uuid="da2c7aaf-efdd-4b78-a15c-730cb1cd30a5">
+								<reportElement x="0" y="0" width="40" height="13" uuid="fedffb01-4a44-49a9-9fb6-c71fc194e638">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -2186,15 +1978,22 @@ Lecture]]></text>
 								<text><![CDATA[PN:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="13" width="40" height="13" uuid="6be370fc-22b5-4ae9-a634-cdb399a90ca6"/>
+								<reportElement x="0" y="13" width="40" height="13" uuid="ace333e4-d62f-4138-8f41-e009b34c3929">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[M:]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="26" width="40" height="13" uuid="9c22fc78-d7cc-4bd1-892d-659edb895c05">
-									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+								<reportElement x="0" y="26" width="40" height="13" uuid="dafb628e-b49f-4f2d-981a-caf419951d21">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
@@ -2204,7 +2003,7 @@ Lecture]]></text>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="20">
 							<staticText>
-								<reportElement x="0" y="0" width="40" height="20" uuid="604aaed3-6bef-4bc9-9435-0983c82ce14d"/>
+								<reportElement x="0" y="0" width="40" height="20" uuid="5df08d4b-e35c-4cbd-9f9c-9d3af5259a07"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="6"/>
 								</textElement>
@@ -2213,7 +2012,7 @@ Lecture]]></text>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="20">
 							<textField>
-								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="8b493ffb-96e6-48f6-aa37-0d0684ddf9d9"/>
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="40" height="20" uuid="84a5c934-bc0f-48d4-9ba1-216a5b0b1276"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -2226,37 +2025,40 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.0"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement x="0" y="26" width="25" height="13" uuid="7d12dc5a-0741-4983-851d-98520ccaac09">
-									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+								<reportElement x="0" y="0" width="25" height="13" uuid="b47279c1-0a50-4224-8647-03604d7a12bc">
 									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
-								<textFieldExpression><![CDATA[" " + $V{Count I}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[" " + $V{Count PN}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="13" width="25" height="13" uuid="e8927676-1ca5-4d1b-9677-d5ec83737e5a"/>
+								<reportElement x="0" y="13" width="25" height="13" uuid="dddcfa1c-993f-4084-a014-81430b723f5e">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+								</reportElement>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[" " + $V{Count Metis}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement x="0" y="0" width="25" height="13" uuid="fdfd8e67-83a9-4a58-a9ce-fdb641f239ad">
-									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<reportElement x="0" y="26" width="25" height="13" uuid="27aac901-3c5f-4f56-b083-f78b34d22fe7">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
-								<textFieldExpression><![CDATA[" " + $V{Count PN}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[" " + $V{Count I}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="20">
@@ -2264,7 +2066,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="25" height="20" uuid="b93cb263-c6a7-4f0b-b3fc-07d432bb5023"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[PNMI]]></text>
 							</staticText>
@@ -2274,75 +2076,9 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="25" height="20" uuid="f09e53e3-ce5e-49c7-9796-13edf8fc0a22"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{PNMI}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="6bb85923-dc2e-4e98-a507-d28b029ac06c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="209394d1-9a0d-4c15-9393-916f3708d9a0"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isBlankWhenNull="true">
-								<reportElement style="COM_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="f2ec2333-17fd-46a0-9808-867cc1d5c88b"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{COM_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="cbe8ce93-b162-4ef7-9905-de892776f709">
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="03ff4d9f-901f-4b29-a185-76f22ecb0397"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
-								<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
-								<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
-								<rightPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
-							</box>
-							<textField isBlankWhenNull="true">
-								<reportElement style="COM_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="8195ca20-fed9-446b-b82d-a4164bbbb75f"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{COM_F_3}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -2350,6 +2086,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2358,7 +2095,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="c61b0e75-59ff-4c21-8e05-bc402d03bfad"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2369,7 +2106,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COM_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="28bdb779-95f2-45e5-8a50-0125e99b1fb4"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COM_I_2}]]></textFieldExpression>
 							</textField>
@@ -2379,6 +2116,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2387,7 +2125,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="e6fcfdc0-19cd-4075-8f6d-6130acc3142e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2404,7 +2142,7 @@ Lecture]]></text>
 									<rightPen lineWidth="0.0"/>
 								</box>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COM_F_2}]]></textFieldExpression>
 							</textField>
@@ -2414,6 +2152,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2422,7 +2161,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="0ee55bef-644e-4975-b85f-c023b0077a3a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2433,7 +2172,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="COM_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="d9cebcfd-ff98-4d86-87a0-5ce21709bf08"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COM_I_1}]]></textFieldExpression>
 							</textField>
@@ -2443,6 +2182,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2451,7 +2191,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="5270c14a-2337-43c3-9e9c-aa55f482c5b7"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2462,67 +2202,9 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="COM_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="1dfdad4f-b4a4-473d-a421-a264f4f0b8ac"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COM_F_1}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="c322f123-c038-43f2-b67c-7bc27d4845f3">
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="3879580a-4c7f-4bc0-b9d7-a730a3ef7c7c"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isBlankWhenNull="true">
-								<reportElement style="ECR_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="be8c6d30-b535-4b0c-867d-191343fefa18"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{ECR_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="4f37013c-8265-434b-8ed8-29fb6db38995">
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="9a366aa8-ad01-43e0-ad08-e7f2b3d1ac3a"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isBlankWhenNull="true">
-								<reportElement key="" style="ECR_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="67a111b9-76c1-4003-a7b5-953dc38278c5"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{ECR_F_3}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -2530,6 +2212,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2538,7 +2221,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="33ac9418-4a50-4242-a897-4c453920d26e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2549,7 +2232,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="ECR_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3fd08a01-5b18-4e18-ab33-8d7d9437b5fb"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ECR_I_2}]]></textFieldExpression>
 							</textField>
@@ -2559,6 +2242,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2567,7 +2251,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="de809fb5-bbc0-4a29-84fd-81a7582c3c54"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2578,7 +2262,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="ECR_F_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="0ae85e14-e1a8-456d-b8ad-6d5837d73eda"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ECR_F_2}]]></textFieldExpression>
 							</textField>
@@ -2588,6 +2272,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2596,7 +2281,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="3297c6d5-4f75-4d53-aab5-46c3f3802d1e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2607,7 +2292,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="ECR_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="44df978b-2444-4a5b-9be7-20f80eda2974"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ECR_I_1}]]></textFieldExpression>
 							</textField>
@@ -2617,6 +2302,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2625,7 +2311,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="0f0cb5b3-1f38-461a-9a66-d63951007f55"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2636,67 +2322,9 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="ECR_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="df20094e-026b-4c26-9e5b-428e79a544e6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ECR_F_1}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="1fe28f63-d28d-4b22-9222-70cd8a229732">
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="3f6addba-8d67-4ebf-ab40-dd3d62a1e513"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[I]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isBlankWhenNull="true">
-								<reportElement style="LEC_I_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="2a995ce9-c442-4c2f-aeb6-35835e7fce5b"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{LEC_I_3}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="19" uuid="b8500819-de6f-4415-9498-843826e3ee6f">
-						<jr:tableFooter height="40">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<box>
-								<bottomPen lineWidth="0.5"/>
-							</box>
-						</jr:tableFooter>
-						<jr:columnHeader style="Table_CH" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="ac1b47e6-ce7f-4d12-8a33-17cfbae8bd12"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<text><![CDATA[F]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="Table_TD" height="20">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<textField isBlankWhenNull="true">
-								<reportElement style="LEC_F_3" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="fc59b1ad-296e-47a4-af35-e144d5b7ce56"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{LEC_F_3}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -2704,6 +2332,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2712,7 +2341,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="000a6b98-4adb-48ab-97da-beaff552d990"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2723,7 +2352,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="LEC_I_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3a9628b9-bb95-41e5-95c6-32b961a59b32"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{LEC_I_2}]]></textFieldExpression>
 							</textField>
@@ -2733,6 +2362,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2741,7 +2371,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="b25f48df-0eb1-4829-94dc-9909938f4c77"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2752,7 +2382,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="LEC_F_2" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="6859dca4-296a-489e-9696-fb9b9e46669b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{LEC_F_2}]]></textFieldExpression>
 							</textField>
@@ -2762,6 +2392,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2770,7 +2401,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="7fb5793a-652a-4300-b1ed-2e8532fab344"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2781,7 +2412,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="LEC_I_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="a4c89070-1fbf-4ac7-873c-b6558b785b0b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{LEC_I_1}]]></textFieldExpression>
 							</textField>
@@ -2791,6 +2422,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2799,7 +2431,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="fb805126-93fe-4fdc-ac83-3b060c331a6f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2810,7 +2442,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="LEC_F_1" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="19" height="20" uuid="f2d20f07-9cf4-44f2-a5c6-7e3465a92fa4"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
+									<font fontName="Tahoma" size="8" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{LEC_F_1}]]></textFieldExpression>
 							</textField>
@@ -2820,6 +2452,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2828,7 +2461,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="2ea1334d-54ca-4de7-972f-a410687d6c9d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2839,7 +2472,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="88be22bf-a7e2-4d20-af40-48e52ee90f74"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_CC_I}]]></textFieldExpression>
 							</textField>
@@ -2849,6 +2482,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2857,7 +2491,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="b1dc432c-86c7-4382-8e6a-2d0851a1c8c8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2868,7 +2502,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="518373d6-365f-42ba-9f13-5d3250c6a046"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_CC_F}]]></textFieldExpression>
 							</textField>
@@ -2878,6 +2512,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2886,7 +2521,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="bed6d7c1-9fee-442d-b47e-3abd94436f3f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2897,7 +2532,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="3e5a8e34-304b-40e8-9955-3178ee63663c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_HP_I}]]></textFieldExpression>
 							</textField>
@@ -2907,6 +2542,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2915,7 +2551,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="3341a34b-ca97-4486-ab96-48c52c298620"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2926,7 +2562,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="148bed9d-1049-4ea4-acd7-d84ff4ce4401"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_HP_F}]]></textFieldExpression>
 							</textField>
@@ -2936,6 +2572,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2944,7 +2581,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="86d29f6e-5c01-4cb3-804b-0518d2c3bb37"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -2955,7 +2592,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="fbb65181-6e6b-4380-84c2-de884005cf66"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_COM_I}]]></textFieldExpression>
 							</textField>
@@ -2965,6 +2602,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -2973,7 +2611,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="f804dd4a-693b-46c0-88ec-26bbdb756f9e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -2984,7 +2622,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="c734b8e5-73d5-4f50-adc8-e357751ab5ff"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_COM_F}]]></textFieldExpression>
 							</textField>
@@ -2994,6 +2632,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3002,7 +2641,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="2edb3278-4ea5-47b7-9c93-dc9409e2b56e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3013,7 +2652,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="e5f1b084-11fc-44af-b0c2-866a659ffe6d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_MA_I}]]></textFieldExpression>
 							</textField>
@@ -3023,6 +2662,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3031,7 +2671,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="9ccbe48c-d12b-4fa9-854e-5b9a3ffe37b6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3042,7 +2682,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_COM_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="7bb96954-4cb9-4a36-a536-7a8014531b31"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_COM_MA_F}]]></textFieldExpression>
 							</textField>
@@ -3052,6 +2692,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3060,7 +2701,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="1d04fe47-2a31-44d2-94f7-f40b694397b6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3071,7 +2712,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="b9ac7aab-8ee3-4a2d-9bd1-01905b73ec5e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_CC_I}]]></textFieldExpression>
 							</textField>
@@ -3081,6 +2722,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3089,7 +2731,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="a89a5285-1084-47b6-9bb1-7f87240af285"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3100,7 +2742,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dcaab4f5-06a7-4974-a08a-12edf0de42d1"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_CC_F}]]></textFieldExpression>
 							</textField>
@@ -3110,6 +2752,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3118,7 +2761,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="b35754b6-985b-49f0-9f8b-4adf41d5aaa4"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3129,7 +2772,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="5553d2c7-e0a2-4760-9307-e3d0deebc9b9"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_HP_I}]]></textFieldExpression>
 							</textField>
@@ -3139,6 +2782,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3147,7 +2791,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="fe2c79db-7be6-42cf-bb55-3bcd28777afc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3158,7 +2802,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement key="" style="COMP_ECR_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dbcfa26c-1fef-4edd-9d61-a0abb1c182fc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_HP_F}]]></textFieldExpression>
 							</textField>
@@ -3168,6 +2812,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3176,7 +2821,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="e63baf2b-0356-41cd-ae0e-01805eabbac2"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3187,7 +2832,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="272a9ab0-d242-4472-af79-a35ae3c15ef9"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_COM_I}]]></textFieldExpression>
 							</textField>
@@ -3197,6 +2842,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3205,7 +2851,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="848c12a2-81b0-4472-9064-9e5ad8cfb109"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3216,7 +2862,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="dc41281f-a54e-4e33-9a1b-c8cabe745379"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_COM_F}]]></textFieldExpression>
 							</textField>
@@ -3226,6 +2872,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3234,7 +2881,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="a634ed9f-d636-4d7c-a9a0-1ae20fd9df3f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3245,7 +2892,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="82abd310-84a8-48ed-b6fe-aa98fa9abd50"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_MA_I}]]></textFieldExpression>
 							</textField>
@@ -3255,6 +2902,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3263,7 +2911,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="27049955-403d-4004-814c-4ca60f807873"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3274,7 +2922,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_ECR_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="d03af4b8-c7e2-49cb-a6d6-452484ef04c5"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_ECR_MA_F}]]></textFieldExpression>
 							</textField>
@@ -3284,6 +2932,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3292,7 +2941,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="e199ef4d-8f43-422c-9ecc-bbafc7544301"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3303,7 +2952,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_CC_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="361288ed-106c-4c6d-a3f4-a0a5c9689283"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_CC_I}]]></textFieldExpression>
 							</textField>
@@ -3313,6 +2962,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3321,7 +2971,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="240768e2-d555-4e5f-a56d-55c719e68253"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3332,7 +2982,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_CC_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="9e6c85a2-7f46-43b7-833f-0f2186a0cb83"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_CC_F}]]></textFieldExpression>
 							</textField>
@@ -3342,6 +2992,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3350,7 +3001,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="8f7904e8-61c7-46a8-800d-2d3fc01bf20a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3361,7 +3012,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_HP_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="a5cd3193-d11e-4634-bfc1-ede234e49ebd"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_HP_I}]]></textFieldExpression>
 							</textField>
@@ -3371,6 +3022,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3379,7 +3031,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="b0a8ffbf-5ee0-467b-8e51-4d303aad6517"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3390,7 +3042,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_HP_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="cb43e53d-9ddb-4092-b3a2-43eb39b5e4d0"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_HP_F}]]></textFieldExpression>
 							</textField>
@@ -3400,6 +3052,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3408,7 +3061,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="7d2d905c-72e0-4769-a98e-98b24afa4f5c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3419,7 +3072,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_COM_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="c63a12e3-0223-46c9-9f39-c77b470a4156"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_COM_I}]]></textFieldExpression>
 							</textField>
@@ -3429,6 +3082,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3437,7 +3091,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="e436d995-d68e-4c0c-a1be-279a84dae2aa"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3448,7 +3102,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_COM_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="40a05978-6989-460e-910b-3b4bbb539d2c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_COM_F}]]></textFieldExpression>
 							</textField>
@@ -3458,6 +3112,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3466,7 +3121,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="d15ded2f-6137-47a2-9471-9296a9f8edec"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[I]]></text>
 							</staticText>
@@ -3477,7 +3132,7 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_MA_I" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="f4bf5b50-b9fe-4873-8a83-34ec076b1eeb"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_MA_I}]]></textFieldExpression>
 							</textField>
@@ -3487,6 +3142,7 @@ Lecture]]></text>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
@@ -3495,7 +3151,7 @@ Lecture]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="19" height="20" uuid="b2afa41f-2aa1-4a52-b30a-82a46bc18887"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<text><![CDATA[F]]></text>
 							</staticText>
@@ -3506,23 +3162,24 @@ Lecture]]></text>
 							<textField isBlankWhenNull="true">
 								<reportElement style="COMP_LEC_MA_F" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="64cd91a1-8774-4b52-82d3-1cd716487623"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8"/>
+									<font fontName="Tahoma" size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{COMP_LEC_MA_F}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="19" uuid="2435759a-f2d7-4ab2-ad3c-41bb29c99cdf">
+					<jr:column width="19" uuid="3d1a53cd-b221-4a31-9a4e-c2fa8788767d">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="20">
 							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="0349fc15-cdcb-4d3f-8566-8b506c8995a1"/>
+								<reportElement x="0" y="0" width="19" height="20" uuid="67e9811e-d9a9-44ba-850f-c45d6ae4a8d5"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -3532,7 +3189,7 @@ Lecture]]></text>
 						<jr:detailCell style="Table_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="d0e72236-55ec-4860-9f35-ced0453783c9"/>
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="d5010a1d-9c9a-40ed-a117-c3f253a8d3ce"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -3540,18 +3197,19 @@ Lecture]]></text>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="19" uuid="316b9a25-9f2a-4811-bcdb-fb152e40ebf0">
+					<jr:column width="19" uuid="17a02f3e-9b6d-488d-81be-1b6d904cfd20">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<jr:tableFooter height="40">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<box>
+								<topPen lineWidth="0.5"/>
 								<bottomPen lineWidth="0.5"/>
 								<rightPen lineWidth="0.5"/>
 							</box>
 						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="20">
 							<staticText>
-								<reportElement x="0" y="0" width="19" height="20" uuid="851d3a9e-c0e3-4c34-8d79-b5cf186e05fa"/>
+								<reportElement x="0" y="0" width="19" height="20" uuid="8fe5868d-f501-467b-8cea-25fac9cbee36"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
@@ -3561,7 +3219,7 @@ Lecture]]></text>
 						<jr:detailCell style="Table_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="51e20237-f7c2-47bc-a081-56d6545cd4d3"/>
+								<reportElement style="Lignes Grises" stretchType="RelativeToBandHeight" x="0" y="0" width="19" height="20" uuid="643f50b8-ccda-4d06-a394-90d017cf81ea"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Tahoma" size="8"/>
 								</textElement>
